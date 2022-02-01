@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function QueryInput() {
+  const [ input, setInput ] = useState('');
+
+  const handleChange = (e) => {
+    console.log('call handleChange');
+  };
+
+  const handleSubmit = () => {};
+
+
   return (
     <div>
-      <h1>Query Input</h1>
+      <p>Query Input</p>
+      <textarea onChange={handleChange}/>
     </div>
   );
 }
