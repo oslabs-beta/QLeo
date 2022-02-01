@@ -5,8 +5,8 @@ const { ApolloServer } = require('apollo-server');
 const  PORT = 3000;
 
 const server = new ApolloServer({ 
-    typeDefs, 
-    resolvers,
+  typeDefs, 
+  resolvers,
 });
 
 // The `listen` method launches a web server.
