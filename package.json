@@ -35,7 +35,8 @@
     "start": "cross-env NODE_ENV=development webpack serve --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
     "package": "npm run build",
-    "postpackage": "electron-packager ./ --out=./builds"
+    "postpackage": "electron-packager ./ --out=./builds",
+    "lint": "eslint --fix --ext .js,.jsx ."
   },
   "dependencies": {
     "react": "^17.0.2",
@@ -51,6 +52,9 @@
     "electron": "^16.0.5",
     "electron-devtools-installer": "^3.2.0",
     "electron-packager": "^15.4.0",
+    "eslint": "^8.8.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-import-resolver-webpack": "^0.13.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",

@@ -1,10 +1,10 @@
-const webpack = require('webpack')
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { spawn } = require('child_process')
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { spawn } = require('child_process');
 
 // Any directories you will be adding code/files into, need to be added to this array so webpack will pick them up
-const defaultInclude = path.resolve(__dirname, 'src')
+const defaultInclude = path.resolve(__dirname, './src');
 
 module.exports = {
   module: {
@@ -15,7 +15,7 @@ module.exports = {
         include: defaultInclude
       },
       {
-        test: /\.jsx?$/,
+        test: /\.(jsx|js|ts|tsx)?$/,
         use: [{ loader: 'babel-loader' }],
         include: defaultInclude
       },
@@ -52,8 +52,8 @@ module.exports = {
         ['.'],
         { shell: true, env: process.env, stdio: 'inherit' }
       )
-      .on('close', code => process.exit(0))
-      .on('error', spawnError => console.error(spawnError))
+        .on('close', code => process.exit(0))
+        .on('error', spawnError => console.error(spawnError));
     }
   }
-}
+};
