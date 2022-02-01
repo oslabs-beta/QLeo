@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import '../assets/css/App.css'
+import '../assets/css/App.css';
 
 function App() {
   return (
     <div>
-      <h1>QLEO </h1>
+      <h1>QLEO</h1>
 
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
