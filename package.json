@@ -39,6 +39,8 @@
     "lint": "eslint --fix --ext .js,.jsx ."
   },
   "dependencies": {
+    "apollo-server": "^3.6.2",
+    "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
