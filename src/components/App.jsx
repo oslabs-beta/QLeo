@@ -23,34 +23,15 @@ const GET_PEOPLE = gql`
 
 function App() {
   const [query, setQuery] = useState('');
-  const [sanitiziedStr, setSanitizedStr] = useState([]);
-  const { loading, error, data } = useQuery(sanitiziedStr);
-  
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-  };
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const gqlString = gql`${query}`;
-
-    
-    setSanitizedStr(gqlString);
-
-  };
 
   return (
     <div>
       <h1>QLEO</h1>
       <QueryInput 
-        handleChange={handleChange} 
-        handleSubmit={handleSubmit} 
-        query={query}
+        setQuery={setQuery}
       />
       <Display 
         query={query}
-        data={data}
       />
     </div>
   );

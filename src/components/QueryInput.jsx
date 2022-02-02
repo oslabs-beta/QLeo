@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function QueryInput({ handleChange, handleSubmit, query }) {
+function QueryInput({ setQuery }) {
+  const [text, setText] = useState('');
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+  const handleSubmit = (e) =>{
+    setQuery(text);
+  };
+
   return (
     <div>
       <p>Query Input</p>
       <textarea 
         type="text" 
         name="query" 
-        value={query}
         placeholder='Write your GraphQL query here...' 
         onChange={handleChange}
       />
