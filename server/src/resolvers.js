@@ -55,7 +55,7 @@ const resolvers = {
 
 function snakeToCamel(str) {
   //Create an empty string to store the result
-  let result = "";
+  let result = '';
   //Create an indicator to check if we need to Capitalize the next character
   let needCapitalize = false;
 
@@ -74,7 +74,7 @@ function snakeToCamel(str) {
     }
   }
   return result;
-};
+}
 
 async function getSpeciesById (parent, args, context, info) {
   const getSpecies = 'SELECT * FROM species WHERE _id = $1';
@@ -101,7 +101,7 @@ async function getPlanetsById(parent, args, context, info) {
       if (typeof res.rows[0] === 'object'){
         const key = Object.keys(res.rows[0]);
         for (let i = 0; i < key.length; i++) {
-        data[snakeToCamel(key[i])] = res.rows[0][key[i]];
+          data[snakeToCamel(key[i])] = res.rows[0][key[i]];
         }
       }
       // console.log(data);

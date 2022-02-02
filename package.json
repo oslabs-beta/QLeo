@@ -39,7 +39,9 @@
     "lint": "eslint --fix --ext .js,.jsx ."
   },
   "dependencies": {
+    "@apollo/client": "^3.5.8",
     "apollo-server": "^3.6.2",
+    "graphql": "^16.3.0",
     "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
@@ -60,6 +62,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",
+    "nodemon": "^2.0.15",
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
