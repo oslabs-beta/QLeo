@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 
 function QueryInput({ setQuery }) {
-  const [text, setText] = useState('');
+  const [input, setInput] = useState('');
 
   const handleChange = (e) => {
-    setText(e.target.value);
+    e.preventDefault();
+
+    setInput(e.target.value);
   };
   const handleSubmit = (e) =>{
-    setQuery(text);
+    e.preventDefault();
+
+    setQuery(input);
   };
 
   return (
@@ -15,7 +19,8 @@ function QueryInput({ setQuery }) {
       <p>Query Input</p>
       <textarea 
         type="text" 
-        name="query" 
+        name="input"
+        value={input}
         placeholder='Write your GraphQL query here...' 
         onChange={handleChange}
       />

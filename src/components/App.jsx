@@ -15,6 +15,7 @@ const GET_PEOPLE = gql`
         orbitalPeriod
       }
       people {
+        id
         name
         }
       }
