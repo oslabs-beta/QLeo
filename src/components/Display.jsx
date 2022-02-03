@@ -26,8 +26,8 @@ function Detail({ query, setTime }) {
       const t1 = performance.now();
       setTime(t1 - t0);
       console.log(`Call to query took ${t1 - t0} milliseconds.`); 
-      console.log(data);
     },
+    fetchPolicy: 'no-cache'
   });  
 
   if (loading) {

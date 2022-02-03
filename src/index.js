@@ -5,12 +5,13 @@ import {
   InMemoryCache,
   ApolloProvider,
 } from '@apollo/client';
+import { linksChain } from './utils/links';
 
 import App from './components/App';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3000/',
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  link: linksChain
 });
 
 
