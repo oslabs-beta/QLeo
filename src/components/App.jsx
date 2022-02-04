@@ -7,19 +7,17 @@ import '../assets/css/App.css';
 
 const GET_PEOPLE = gql`
   query {
-    species(id: 1) {
+    species(id: 2) {
       name
-      homeworldId
-      homeworld {
-        name
-        orbitalPeriod
-      }
       people {
         id
         name
+        species {
+            name
         }
       }
     }
+  }
 `;
 
 function App() {

@@ -36,7 +36,8 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
     "package": "npm run build",
     "postpackage": "electron-packager ./ --out=./builds",
-    "lint": "eslint --fix --ext .js,.jsx ."
+    "lint": "eslint --fix --ext .js,.jsx .",
+    "server": "nodemon server/server.js"
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",

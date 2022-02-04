@@ -13,16 +13,6 @@ const server = new ApolloServer({
     plugins,
     ApolloServerPluginInlineTrace(),
   ],
-  formatResponse: (response, requestContext) => {
-    //return response
-    
-    response = Object.assign(response, {
-      extensions: {
-        performance: {}
-      }
-    });
-    return response;
-  }
 });
 
 // The `listen` method launches a web server.
