@@ -1,4 +1,4 @@
-const db = require('../models/starwarsModel');
+const db = require('./models/starwarsModel');
 
 const resolvers = {
   Query: {
