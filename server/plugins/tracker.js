@@ -1,3 +1,13 @@
+var _ = require('lodash');
+
+function customizer(objValue, srcValue) {
+  if (_.isArray(objValue)) {
+    return objValue.concat(srcValue);
+  }else if (typeof objValue === 'number'){
+    return objValue + srcValue;
+  }
+}
+
 module.exports = {
   requestDidStart(requestContext) {
     const start = Date.now();
@@ -9,18 +19,36 @@ module.exports = {
         op = context.operationName;
       },
       executionDidStart(context){
+        // console.log('execution did start');
         return {
           willResolveField({source, args, context, info}) {
+            // console.log('execution did resolve, field name ' + info.fieldName, info.path);
             const start = performance.now();
             return (error, result) => {
               const end = performance.now();
-              if (performanceData[info.parentType.name] === undefined)  performanceData[info.parentType.name] = {};
-              if (performanceData[info.parentType.name][info.fieldName] === undefined) performanceData[info.parentType.name][info.fieldName] = {'time': [], 'trips':0};
-              performanceData[info.parentType.name][info.fieldName].time.push(end - start);
-              performanceData[info.parentType.name][info.fieldName].trips += 1;
+
+              let itemPerformance = {};
+              itemPerformance[info.fieldName] = {'time': [], trips: 0};
+              itemPerformance[info.fieldName].time.push(end - start);
+              itemPerformance[info.fieldName].trips += 1;
+
+              let current = info.path;
+
+              while (current !== undefined) {
+                if (current.typename !== undefined){
+                  const temp = {};
+                  temp[current.typename] = itemPerformance;
+                  itemPerformance = temp;
+                }
+                current = current.prev;
+              }
+
+              _.mergeWith(performanceData, itemPerformance, customizer);
+
               if (error) {
                 console.log(`It failed with ${error}`);
-              } else {
+              } 
+              else {
                 console.log(`It returned ${result}`);
               }
             };
