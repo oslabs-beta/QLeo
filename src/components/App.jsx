@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
-import Display from './Display';
 import QueryInput from './QueryInput';
+import Detail from './Detail';
 
 import '../assets/css/App.css';
 
@@ -29,9 +29,8 @@ function App() {
       <QueryInput 
         setQuery={setQuery}
       />
-      <Display 
-        query={query}
-      />
+      <p>GraphQL performance details</p>
+      {query ? <Detail query={query} /> : <p>No results to display..</p> }
     </div>
   );
 }
