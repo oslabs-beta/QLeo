@@ -1,12 +1,18 @@
 const typeDefs = require('./src/schema');
 const resolvers = require('./src/resolvers');
 const { ApolloServer } = require('apollo-server');
+const { ApolloServerPluginInlineTrace } = require('apollo-server-core');
+const plugins = require('./plugins/tracker');
 
 const  PORT = 3000;
 
 const server = new ApolloServer({ 
   typeDefs, 
   resolvers,
+  plugins: [
+    plugins,
+    ApolloServerPluginInlineTrace(),
+  ],
 });
 
 // The `listen` method launches a web server.

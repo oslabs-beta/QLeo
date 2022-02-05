@@ -36,12 +36,18 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
     "package": "npm run build",
     "postpackage": "electron-packager ./ --out=./builds",
-    "lint": "eslint --fix --ext .js,.jsx ."
+    "lint": "eslint --fix --ext .js,.jsx .",
+    "server": "nodemon server/server.js"
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
+    "@codemirror/theme-one-dark": "^0.19.1",
+    "@uiw/react-codemirror": "^4.3.3",
     "apollo-server": "^3.6.2",
+    "codemirror": "^5.65.1",
+    "codemirror-graphql": "^1.2.11",
     "graphql": "^16.3.0",
+    "lodash": "^4.17.21",
     "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
