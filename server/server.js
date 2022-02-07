@@ -1,5 +1,5 @@
-const typeDefs = require('./src/schema');
-const resolvers = require('./src/resolvers');
+const typeDefs = require('./src/sql/schema');
+const resolvers = require('./src/sql/resolvers');
 const { ApolloServer } = require('apollo-server');
 const { ApolloServerPluginInlineTrace } = require('apollo-server-core');
 const plugins = require('./plugins/tracker');
