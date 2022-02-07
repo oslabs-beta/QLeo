@@ -48,6 +48,7 @@
     "codemirror-graphql": "^1.2.11",
     "graphql": "^16.3.0",
     "lodash": "^4.17.21",
+    "mongoose": "^6.2.0",
     "pg": "^8.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
