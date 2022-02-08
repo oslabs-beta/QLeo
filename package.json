@@ -42,15 +42,23 @@
   "dependencies": {
     "@apollo/client": "^3.5.8",
     "@codemirror/theme-one-dark": "^0.19.1",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.3.1",
+    "@mui/material": "^5.4.0",
     "@uiw/react-codemirror": "^4.3.3",
     "apollo-server": "^3.6.2",
+    "chart.js": "^3.7.0",
     "codemirror": "^5.65.1",
     "codemirror-graphql": "^1.2.11",
     "graphql": "^16.3.0",
     "lodash": "^4.17.21",
+    "mongoose": "^6.2.0",
     "pg": "^8.7.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-chartjs-2": "^4.0.1",
+    "react-dom": "^17.0.2",
+    "sass": "^1.49.7"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
@@ -69,6 +77,7 @@
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.4.5",
     "nodemon": "^2.0.15",
+    "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.65.0",
     "webpack-cli": "^4.9.1",
