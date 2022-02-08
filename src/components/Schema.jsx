@@ -25,13 +25,13 @@ function Schema() {
   }
 
   if (error) {
-    return <p>There was an error: {error}</p>;
+    return <p>There was an error: {JSON.stringify(error)}</p>;
   }
   console.log(data);
 
   return (
     <div className="schema">
-      <h1>schemamamaaa column</h1>
+      <h1>Schema</h1>
       <h2>root query </h2>
     </div>
   );
