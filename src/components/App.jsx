@@ -53,9 +53,10 @@ function App() {
         />
         <p>GraphQL performance details</p>
         {
-          query ? <Detail query={gql`${query}`} /> 
-            : mutation ? <Mutation mutation={gql`${mutation}`} /> 
-              : <p>No results to display...</p> 
+          // query ? <Detail query={gql`${query}`} /> 
+          //   : mutation ? <Mutation mutation={gql`${mutation}`} /> 
+          //     : <p>No results to display...</p> 
+          query ? <Detail query={query} /> : <p>No results to display</p>
         }
       </div>
     </div>

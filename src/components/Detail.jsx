@@ -1,17 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useMutation } from '@apollo/client';
 import { gql, useQuery } from '@apollo/client';
 import Dropdown from './Dropdown';
 
 function Detail({ query }) {
   const [ metrics, setMetrics] = useState({});
+  let data, loading, error, mutationFunc;
   
-  const { loading, error, data } = useQuery(query, {
-    onCompleted: (data) => {
-      setMetrics(data.extensions.performanceData);
-    },
-    fetchPolicy: 'no-cache'
-  });
-
+  if (query.trim().substring(0,8) === 'mutation'){
+    [ mutationFunc , { data, loading , error }] = useMutation(gql`${query}`, {
+      onCompleted: data => {
+        setMetrics(data.extensions.performanceData);
+      },
+      fetchPolicy: 'no-cache'
+    });
+  
+    useEffect(() => {
+      mutationFunc();
+    }, []);
+  }else if (query.trim().substring(0,5) === 'query'){
+    [{ loading, error, data }] = [useQuery(gql`${query}`, {
+      onCompleted: (data) => {
+        setMetrics(data.extensions.performanceData);
+      },
+      fetchPolicy: 'no-cache'
+    })];
+  }
+  console.log(loading);
   if (loading) {
     return <p>Loading...</p>;
   }

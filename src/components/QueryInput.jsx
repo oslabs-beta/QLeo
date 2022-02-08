@@ -11,14 +11,14 @@ import 'codemirror-graphql/mode';
 
 function QueryInput({ setQuery, setMutation }) {
   const [input, setInput] = useState('');
-  const [type, setType] = useState('');
+  // const [type, setType] = useState('');
 
-  useEffect(() => {
-    if (input) {
-      const queryStr = input.trim().split(' ')[0];
-      setType(queryStr);
-    }
-  }, [input]);
+  // useEffect(() => {
+  //   if (input) {
+  //     const queryStr = input.trim().split(' ')[0];
+  //     setType(queryStr);
+  //   }
+  // }, [input]);
 
   const reset = () => {
     setInput('');
@@ -32,14 +32,14 @@ function QueryInput({ setQuery, setMutation }) {
   
   const handleSubmit = (e) =>{
     e.preventDefault();
+    setQuery(input);
+    // if (type === 'query') {
+    //   setQuery(input);
+    // }
     
-    if (type === 'query') {
-      setQuery(input);
-    }
-    
-    if (type === 'mutation') {
-      setMutation(input);
-    }
+    // if (type === 'mutation') {
+    //   setMutation(input);
+    // }
   };
 
   return (
