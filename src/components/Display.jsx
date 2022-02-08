@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Detail from './Detail';
 
-import '../assets/css/Display.scss';
 function Display({ query }) {
   const [time, setTime] = useState();
 
