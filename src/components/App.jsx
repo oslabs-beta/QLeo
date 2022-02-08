@@ -5,6 +5,7 @@ import Detail from './Detail';
 import Mutation from './Mutation';
 import NavBar from './Navbar';
 import Schema from './Schema';
+import GraphData from './GraphData';
 
 
 import '../assets/css/App.scss';
@@ -44,13 +45,13 @@ function App() {
 
   return (
     <div>
-      <NavBar />
       <div className="main">
         <Schema />
         <QueryInput 
           setQuery={setQuery}
           setMutation={setMutation}
         />
+        <GraphData />
         <p>GraphQL performance details</p>
         {
           query ? <Detail query={gql`${query}`} /> 
