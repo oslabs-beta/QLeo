@@ -3,8 +3,11 @@ import { gql, useMutation } from '@apollo/client';
 import QueryInput from './QueryInput';
 import Detail from './Detail';
 import Mutation from './Mutation';
+import NavBar from './Navbar';
+import Schema from './Schema';
 
-import '../assets/css/App.css';
+
+import '../assets/css/App.scss';
 
 const GET_PEOPLE = gql`
   query {
@@ -26,7 +29,7 @@ const GET_PEOPLE = gql`
 
 const CREATE_PERSON = gql`
   mutation {
-    createPerson(name: "Chon", hairColor: "sdfg", eyeColor:"22323") {
+    createPerson(name: "Chon", hairColor: "green", eyeColor:"blue") {
       name
       hairColor
       eyeColor
@@ -41,17 +44,20 @@ function App() {
 
   return (
     <div>
-      <h1>QLEO</h1>
-      <QueryInput 
-        setQuery={setQuery}
-        setMutation={setMutation}
-      />
-      <p>GraphQL performance details</p>
-      {
-        query ? <Detail query={gql`${query}`} /> 
-          : mutation ? <Mutation mutation={gql`${mutation}`} /> 
-            : <p>No results to display...</p> 
-      }
+      <NavBar />
+      <div className="main">
+        <Schema />
+        <QueryInput 
+          setQuery={setQuery}
+          setMutation={setMutation}
+        />
+        <p>GraphQL performance details</p>
+        {
+          query ? <Detail query={gql`${query}`} /> 
+            : mutation ? <Mutation mutation={gql`${mutation}`} /> 
+              : <p>No results to display...</p> 
+        }
+      </div>
     </div>
   );
 }
