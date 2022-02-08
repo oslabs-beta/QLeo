@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
-import { gql, useQuery } from '@apollo/client';
+import React, { useState, useEffect } from 'react';
+import { useMutation } from '@apollo/client';
 import Dropdown from './Dropdown';
 
-function Detail({ query }) {
+function Mutation({ mutation }) {
   const [ metrics, setMetrics] = useState({});
-  
-  const { loading, error, data } = useQuery(query, {
-    onCompleted: (data) => {
+  const [ mutationFunc , { data, loading , error }] = useMutation(mutation, {
+    onCompleted: data => {
       setMetrics(data.extensions.performanceData);
     },
     fetchPolicy: 'no-cache'
   });
+
+  useEffect(() => {
+    mutationFunc();
+  }, []);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -27,7 +30,6 @@ function Detail({ query }) {
       <Dropdown obj={metrics} indent={1} />
     </div>
   );
-
 }
 
-export default Detail;
+export default Mutation;
