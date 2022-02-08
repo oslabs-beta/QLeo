@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import QueryItem from './SchemaQueryItem';
+import MutationItem from './MutationSchemaItem';
 
 const introQuery = gql `
   {
@@ -21,6 +22,17 @@ const introQuery = gql `
       mutationType{
         fields{
           name
+          args{
+              name
+              type{
+                  name
+                  kind
+                  ofType{
+                      name
+                      kind
+                  }
+              }
+          }
           type {
             name
             kind
@@ -38,6 +50,7 @@ const introQuery = gql `
 function Schema() {
   const [showQuery, setShowQuery] = useState(false);
   const [showMutation, setShowMutation] = useState(false);
+  const [isRoot, setIsRoot] = useState(true);
   const { loading, error, data } = useQuery(introQuery);  
 
 
@@ -53,15 +66,22 @@ function Schema() {
   data['__schema'].queryType.fields.forEach((el) => queryTypes.push(<QueryItem typeDef={el}/>));
 
   const mutationTypes = [];
-  data['__schema'].mutationType.fields.forEach((el) => mutationTypes.push(<QueryItem typeDef={el}/>));
+  data['__schema'].mutationType.fields.forEach((el) => mutationTypes.push(<MutationItem typeDef={el}/>));
+
+  const rootTags = <div><h2>root query </h2> 
+    <button onClick={() => {
+      setIsRoot(false);
+      setShowQuery(!showQuery);}}>Query</button>
+    <button onClick={() => {
+      setIsRoot(false);
+      setShowMutation(!showMutation);}}>Mutation</button>
+  </div>;
 
   return (
     <div className="schema">
       <h1>Schema</h1>
-      <h2>root query </h2>
-      <button onClick={() => setShowQuery(!showQuery)}>Query</button>
+      {isRoot && rootTags}
       { showQuery && queryTypes}
-      <button onClick={() => setShowMutation(!showMutation)}>Mutation</button>
       { showMutation && mutationTypes}
     </div>
   );
