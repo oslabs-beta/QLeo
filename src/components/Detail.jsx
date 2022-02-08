@@ -14,10 +14,11 @@ function Detail({ query }) {
       },
       fetchPolicy: 'no-cache'
     });
-  
+    
     useEffect(() => {
       mutationFunc();
     }, []);
+
   }else if (query.trim().substring(0,5) === 'query'){
     [{ loading, error, data }] = [useQuery(gql`${query}`, {
       onCompleted: (data) => {
@@ -26,6 +27,8 @@ function Detail({ query }) {
       fetchPolicy: 'no-cache'
     })];
   }
+
+  
   console.log(loading);
   if (loading) {
     return <p>Loading...</p>;
