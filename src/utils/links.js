@@ -10,7 +10,7 @@ const ForwardExtensionsLink = new ApolloLink((operation, forward) =>
 );
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:3000/'
+  uri: 'http://localhost:3000/graphql'
 });
 
 export const linksChain = from([ForwardExtensionsLink, httpLink]);
