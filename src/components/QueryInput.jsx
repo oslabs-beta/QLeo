@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
+import Button from '@mui/material/Button';
+
 import CodeMirror from '@uiw/react-codemirror';
-
 import { oneDark } from '@codemirror/theme-one-dark';
-
 import 'codemirror/addon/hint/show-hint';
 import 'codemirror/addon/lint/lint';
 import 'codemirror-graphql/lint';
@@ -28,11 +28,13 @@ function QueryInput({ setQuery }) {
       <CodeMirror 
         value={input}
         height='200px'
+        width='500px'
         onChange={(value) => handleChange(value)}
         theme={oneDark}
         options={{ lineNumbers: true, mode: 'graphql', smartIndent: true, lineWrapping: true }}
       />
-      <button className="submit-btn" onClick={handleSubmit}>Submit</button>
+      <Button variant="contained" className='submit-btn' onClick={handleSubmit}>Submit</Button>
+      {/* <button className="submit-btn" onClick={handleSubmit}>Submit</button> */}
     </div>
   );
 }

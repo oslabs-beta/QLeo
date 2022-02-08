@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Detail from './Detail';
 
+import '../assets/css/Display.scss';
 function Display({ query }) {
   const [time, setTime] = useState();
 
@@ -8,6 +9,7 @@ function Display({ query }) {
     <div className='display-container'>
       <h1>Display Component</h1>
       <div className="query-time">Query Response Time: {time}</div>
+      <br></br>
       <div className="resolver-breakdown">Resolver Breakdown:</div>
       <Detail query={query} setTime={setTime} />
     </div>

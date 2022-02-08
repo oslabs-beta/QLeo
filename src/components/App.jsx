@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import Display from './Display';
 import QueryInput from './QueryInput';
+import NavBar from './Navbar';
+import Schema from './Schema';
 
-import '../assets/css/App.css';
+
+import '../assets/css/App.scss';
 
 const GET_PEOPLE = gql`
 query {
@@ -11,7 +14,7 @@ query {
     name
     people {
       id
-      name
+      name 
       species {
           name
           homeworld {
@@ -28,13 +31,16 @@ function App() {
 
   return (
     <div>
-      <h1>QLEO</h1>
-      <QueryInput 
-        setQuery={setQuery}
-      />
-      <Display 
-        query={query}
-      />
+      <NavBar />
+      <div className="main">
+        <Schema />
+        <QueryInput 
+          setQuery={setQuery}
+        />
+        <Display 
+          query={query}
+        />
+      </div>
     </div>
   );
 }
