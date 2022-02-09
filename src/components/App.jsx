@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import QueryInput from './QueryInput';
 import Detail from './Detail';
-import Mutation from './Mutation';
 import NavBar from './Navbar';
 import Schema from './Schema';
 import GraphData from './GraphData';
@@ -41,7 +40,6 @@ const CREATE_PERSON = gql`
 
 function App() {
   const [query, setQuery] = useState('');
-  const [mutation, setMutation] = useState('');
 
   return (
     <div>
@@ -49,7 +47,6 @@ function App() {
         <Schema />
         <QueryInput 
           setQuery={setQuery}
-          setMutation={setMutation}
         />
         <GraphData />
         <p>GraphQL performance details</p>

@@ -45,7 +45,6 @@ function Detail({ query }) {
       <Dropdown obj={metrics} indent={1} />
     </div>
   );
-
 }
 
 export default Detail;
