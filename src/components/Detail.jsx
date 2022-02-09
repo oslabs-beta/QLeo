@@ -4,10 +4,11 @@ import { gql, useQuery } from '@apollo/client';
 import Dropdown from './Dropdown';
 
 
-function MutationHook({query, setMetrics}){
+function MutationHook({query, setMetrics, setGlobalMetrics}){
   const  [ mutationFunc , { data, loading , error }] = useMutation(gql`${query}`, {
     onCompleted: data => {
       setMetrics(data.extensions.performanceData);
+      setGlobalMetrics(data.extensions.performanceData);
     },
     fetchPolicy: 'no-cache'
   });
@@ -18,17 +19,18 @@ function MutationHook({query, setMetrics}){
   return null;
 }
 
-function QueryHook({query, setMetrics}){
+function QueryHook({query, setMetrics, setGlobalMetrics}){
   const { loading, error, data } = useQuery(gql`${query}`, {
     onCompleted: (data) => {
       setMetrics(data.extensions.performanceData);
+      setGlobalMetrics(data.extensions.performanceData);
     },
     fetchPolicy: 'no-cache'
   });
   return null;
 }
 
-function Detail({ query }) {
+function Detail({ query, setGlobalMetrics }) {
   const [ metrics, setMetrics] = useState({});
   let isQuery, isMutation;
   
@@ -37,8 +39,8 @@ function Detail({ query }) {
 
   return (
     <div className="detail-container">
-      {isQuery ? <QueryHook query={query} setMetrics={setMetrics}/> : 
-        isMutation ? <MutationHook query={query} setMetrics={setMetrics}/> :
+      {isQuery ? <QueryHook query={query} setMetrics={setMetrics} setGlobalMetrics={setGlobalMetrics}/> : 
+        isMutation ? <MutationHook query={query} setMetrics={setMetrics} setGlobalMetrics={setGlobalMetrics}/> :
           <p>nothing</p>}
       <div className="query-time">Query Response Time: {metrics.queryTime}</div>
       <div className="resolver-breakdown">Resolver Breakdown:</div>
