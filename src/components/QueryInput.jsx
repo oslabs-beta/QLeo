@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import Button from '@mui/material/Button';
 
 import CodeMirror from '@uiw/react-codemirror';
 import { ValidationContext, SDLValidationContext } from 'graphql';
@@ -68,8 +67,8 @@ function QueryInput({ setQuery, setMutation }) {
           smartIndent: true, 
           lineWrapping: true }}
       />
-      <Button variant="contained" className='submit-btn' onClick={handleSubmit}>Submit</Button>
-      <Button variant="outline" onClick={reset}>Reset</Button>
+      <button className='submit-btn' onClick={handleSubmit}>Submit </button>
+      <button className='submit-btn' onClick={reset}>Reset </button>
     </div>
   );
 }

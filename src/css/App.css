@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+  h1 {
+    font-size: 21px;
+    font-weight: 200;
+  }
+
+  .main {
+      display: flex;
+      justify-content: space-between;
+  }
