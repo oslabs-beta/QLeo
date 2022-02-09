@@ -10,15 +10,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s?css$/,
-        use: [
-          // Creates `style` nodes from JS strings
-          'style-loader',
-          // Translates CSS into CommonJS
-          'css-loader',
-          // Compiles Sass to CSS
-          'sass-loader',
-        ],
+        test: /\.css$/,
+        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'postcss-loader' }],
         include: defaultInclude
       },
       {

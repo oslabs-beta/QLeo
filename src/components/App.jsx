@@ -7,7 +7,7 @@ import Schema from './Schema';
 import GraphData from './GraphData';
 
 
-import '../assets/css/App.scss';
+import '../css/App.css';
 
 const GET_PEOPLE = gql`
   query {
@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="main">
         <Schema />
         <QueryInput 
@@ -64,6 +64,7 @@ function App() {
           query ? <Detail query={query} /> : <p>No results to display</p>
         }
       </div>
+              <div className="bg-gray-500 p-5 text-center">Tailwind</div>
     </div>
   );
 }
