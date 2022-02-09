@@ -1,39 +1,19 @@
 import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
-import QueryItem from './SchemaQueryItem';
+import QueryItem from './FieldItem';
 import MutationItem from './MutationSchemaItem';
+import Root from './schemaComponents/Root';
 
 const introQuery = gql `
-  {
-    __schema {
-      queryType{
-        fields{
+{
+  __schema {
+    queryType{
+      fields{
+        name
+        type {
           name
-          type {
-            name
-            kind
-            ofType{
-              name
-              kind
-            }
-          }
-        }
-      }
-      mutationType{
-        fields{
-          name
-          args{
-              name
-              type{
-                  name
-                  kind
-                  ofType{
-                      name
-                      kind
-                  }
-              }
-          }
-          type {
+          kind
+          ofType{
             name
             kind
             ofType{
@@ -44,13 +24,46 @@ const introQuery = gql `
         }
       }
     }
+    mutationType {
+      fields{
+        name
+        args{
+            name
+            type{
+                name
+                kind
+                ofType{
+                    name
+                    kind
+                    ofType{
+                      name
+                      kind
+                  }
+                }
+            }
+        }
+        type {
+          name
+          kind
+          ofType{
+            name
+            kind
+            ofType{
+            name
+            kind
+          }
+        }
+      }
+    }
   }
+}
+}
 `;
 
 function Schema() {
-  const [showQuery, setShowQuery] = useState(false);
-  const [showMutation, setShowMutation] = useState(false);
   const [isRoot, setIsRoot] = useState(true);
+  const [prev, setPrev] = useState(null);
+  const [reqData, setReqData] = useState({});
   const { loading, error, data } = useQuery(introQuery);  
 
 
@@ -62,27 +75,36 @@ function Schema() {
     return <p>There was an error: {JSON.stringify(error)}</p>;
   }
   
-  const queryTypes = [];
-  data['__schema'].queryType.fields.forEach((el) => queryTypes.push(<QueryItem typeDef={el}/>));
+  const schemaTypes = [];
+  if (Object.keys(reqData).length > 0) {
+    schemaTypes.push(<h4>{reqData.name}</h4>);
+    if (reqData.args !== undefined){
+      schemaTypes.push(<h4>Arguments:</h4>);
+      console.log('args',reqData.args);
+      reqData.args.forEach((el) => schemaTypes.push(<QueryItem typeDef={el} setReqData={setReqData} prev={prev} setPrev={setPrev} parent={reqData}/>));
+    } 
+    schemaTypes.push(<h4>Fields:</h4>);
+    reqData.fields.forEach((el) => schemaTypes.push(<QueryItem typeDef={el} setReqData={setReqData} prev={prev} setPrev={setPrev} parent={reqData}/>));
+  }
+  console.log(prev);
+  // const mutationTypes = [];
+  // data['__schema'].mutationType.fields.forEach((el) => mutationTypes.push(<MutationItem typeDef={el}/>));
 
-  const mutationTypes = [];
-  data['__schema'].mutationType.fields.forEach((el) => mutationTypes.push(<MutationItem typeDef={el}/>));
-
-  const rootTags = <div><h2>root query </h2> 
-    <button onClick={() => {
-      setIsRoot(false);
-      setShowQuery(!showQuery);}}>Query</button>
-    <button onClick={() => {
-      setIsRoot(false);
-      setShowMutation(!showMutation);}}>Mutation</button>
-  </div>;
+  console.log(reqData);
+  const backHandler = () =>{
+    if (prev === null) setIsRoot(true);
+    else {
+      setReqData(prev.typeDef);
+      setPrev(prev.prev);
+    }
+  };
 
   return (
     <div className="schema">
-      <h1>Schema</h1>
-      {isRoot && rootTags}
-      { showQuery && queryTypes}
-      { showMutation && mutationTypes}
+      <h1>Schema <button onClick={backHandler}>Back</button></h1>
+      {isRoot && <Root setIsRoot={setIsRoot} data={data['__schema']} setReqData={setReqData}/>}
+      {!isRoot && schemaTypes}
+     
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
 
 
-function MutationItem({ typeDef, setReqData, setPrev, prev, parent }) {
+function QueryItem({ typeDef, setReqData, setPrev, prev, parent }) {
   let isObject = false;  
   let isNonNull = false;
   let isList = false;
@@ -58,6 +58,9 @@ function MutationItem({ typeDef, setReqData, setPrev, prev, parent }) {
 
     const clickHandler = () => {
       setPrev({prev: prev, typeDef: parent});
+      if (typeDef.args !== undefined){
+        return setReqData({args:typeDef.args, ...data['__type'], name:typeDef.name});
+      }
       setReqData(data['__type']);
     };
 
@@ -78,4 +81,4 @@ function MutationItem({ typeDef, setReqData, setPrev, prev, parent }) {
   );
 }
 
-export default MutationItem;
+export default QueryItem;
