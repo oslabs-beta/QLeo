@@ -6,25 +6,38 @@ import Chart from 'chart.js/auto';
 function GraphData({Chart ,query, metrics}) {
   let chartData;
   const graphTag = [];
-  let keys, speed;
+  const speed = [];
   // console.log('data', data);
-  if (Object.keys(metrics).length > 0) {
-    console.log('metrics',  metrics);
+  let currentKeys = Object.keys(metrics);
+  let currentObj = metrics;
+  if (currentKeys.length > 0) {
+    const placeholder = [];
+    graphTag.push('Total Time');
+    speed.push(metrics.queryTime);
 
-
-    keys = Object.keys(metrics.Query.Species).filter((el)=>{
-      if (metrics.Query.Species[el].time !== undefined) return true;
-      else return false;
-    });
     
-    console.log('keys', keys);
-  
-    speed = keys.map((el) => metrics.Query.Species[el].time[0]);
-    console.log('speed', speed);
-  
+    while (currentKeys.length > 0){
+      for (let i = 0; i < currentKeys.length; i++){
+        if (currentObj[currentKeys[i]].time !== undefined){
+          currentObj[currentKeys[i]].time.forEach((el) => {
+            graphTag.push(currentKeys[i]);
+            speed.push(el);
+          });
+        }else if (typeof currentObj[currentKeys[i]] === 'object'){
+          placeholder.push(currentObj[currentKeys[i]]);
+        }
+      }
+      currentObj = placeholder.shift();
+      if (currentObj === undefined) break;
+      currentKeys = Object.keys(currentObj);
+    }
+
+    console.log(graphTag);
+    console.log('length', graphTag.length);
+    console.log('last element', graphTag[12]);
 
     chartData =  {
-      labels: keys,
+      labels: graphTag.slice(),
       datasets: [{
         label: 'Speed in ms',
         backgroundColor: 'rgba(75,192,192,1)',
@@ -33,8 +46,6 @@ function GraphData({Chart ,query, metrics}) {
         data: speed
       }]
     };
-
-    console.log('first chartData', chartData);
 
     graphTag.push(
       <Bar
