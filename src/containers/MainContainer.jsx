@@ -13,6 +13,7 @@ function MainContainer({query, metrics, setQuery, setMetrics}) {
       <Schema />
       <QueryInput 
         setQuery={setQuery}
+        query={query}
       />
       {/* {
         query ? <GraphData query={gql`${query}`} metrics={metrics}/> 
