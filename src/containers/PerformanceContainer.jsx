@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import FileUpload from '../components/FileUpload';
+import GraphData from '../components/GraphData';
 
-function UploadContainer() {
+function UploadContainer({ query, metrics }) {
   return (
-    <div className="upload-container">
-      <FileUpload />
+    <div className="performance-container">
+      {
+        query ? <GraphData metrics={metrics}/> 
+          : <p>No results to display...</p> 
+      }
     </div>
   );
 }

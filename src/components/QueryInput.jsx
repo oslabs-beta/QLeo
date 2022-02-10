@@ -12,8 +12,8 @@ import 'codemirror-graphql/lint';
 import 'codemirror-graphql/mode';
 require('codemirror/mode/markdown/markdown');
 
-function QueryInput({ setQuery, setMutation }) {
-  const [input, setInput] = useState('');
+function QueryInput({ query, setQuery, setMutation }) {
+  const [input, setInput] = useState(query);
 
   const reset = () => {
     setInput('');

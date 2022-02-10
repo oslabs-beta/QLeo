@@ -21,21 +21,21 @@ function NavBar() {
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link
-                    to={placeholderLink}
+                    to='/'
                     className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Dashboard
                   </Link>
 
                   <Link
-                    to={placeholderLink}
+                    to='upload'
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Upload
                   </Link>
 
                   <Link
-                    to={placeholderLink}
+                    to='performance'
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     Performance
