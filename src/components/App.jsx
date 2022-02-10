@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { gql, useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import { gql } from '@apollo/client';
 import QueryInput from './QueryInput';
 import Detail from './Detail';
 import Schema from './Schema';
 import GraphData from './GraphData';
+<<<<<<< HEAD
 import NavBar from './NavBar';
+=======
+import FileUpload from './FileUpload';
+>>>>>>> 6555e2e476646b8158c0978fa78c46674f64feb8
 
 
 import '../css/App.css';
@@ -50,6 +54,7 @@ function App() {
       <NavBar />
       <div className="main">
         <Schema />
+        <FileUpload />
         <QueryInput 
           setQuery={setQuery}
         />
@@ -66,7 +71,11 @@ function App() {
           query ? <Detail query={query} setGlobalMetrics={setMetrics}/> : <p>No results to display</p>
         }
       </div>
+<<<<<<< HEAD
       
+=======
+      <div className="bg-gray-500 p-5 text-center">Tailwind</div>
+>>>>>>> 6555e2e476646b8158c0978fa78c46674f64feb8
     </div>
   );
 }
