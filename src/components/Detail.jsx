@@ -39,6 +39,7 @@ function Detail({ query, setGlobalMetrics }) {
 
   return (
     <div className="detail-container">
+      <p>GraphQL performance details</p>
       {isQuery ? <QueryHook query={query} setMetrics={setMetrics} setGlobalMetrics={setGlobalMetrics}/> : 
         isMutation ? <MutationHook query={query} setMetrics={setMetrics} setGlobalMetrics={setGlobalMetrics}/> :
           <p>nothing</p>}

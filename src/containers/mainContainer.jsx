@@ -20,7 +20,6 @@ function MainContainer() {
         query ? <GraphData query={gql`${query}`} metrics={metrics}/> 
           : <p>No results to display...</p> 
       }
-      <p>GraphQL performance details</p>
       {
         query ? <Detail query={query} setGlobalMetrics={setMetrics}/> : <p>No results to display</p>
       }

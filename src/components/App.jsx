@@ -7,7 +7,7 @@ import {
   Route
 } from 'react-router-dom';
 import { gql } from '@apollo/client';
-import NavBar from './NavBar';
+import NavBar from './Navbar';
 import MainContainer from '../containers/MainContainer';
 
 
