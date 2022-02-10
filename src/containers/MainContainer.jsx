@@ -1,26 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { gql } from '@apollo/client';
+import React, { useState } from 'react';
 import QueryInput from '../components/QueryInput';
 import Detail from '../components/Detail';
 import Schema from '../components/Schema';
-import GraphData from '../components/GraphData';
 
 function MainContainer({query, metrics, setQuery, setMetrics}) {
-//   const [query, setQuery] = useState('');
-//   const [metrics, setMetrics] = useState({});
+  const [execRequest, setExecRequest] = useState(false);
+
   return (
     <div className="main-container">
       <Schema />
       <QueryInput 
         setQuery={setQuery}
         query={query}
+        setExecRequest={setExecRequest}
+        setMetrics={setMetrics}
       />
-      {/* {
-        query ? <GraphData query={gql`${query}`} metrics={metrics}/> 
-          : <p>No results to display...</p> 
-      } */}
       {
-        query ? <Detail query={query} setGlobalMetrics={setMetrics}/> : <p>No results to display</p>
+        <Detail 
+          query={query} 
+          metrics={metrics}
+          setMetrics={setMetrics}
+          setExecRequest={setExecRequest}
+          execRequest={execRequest}/> 
       }
     </div>
   );
