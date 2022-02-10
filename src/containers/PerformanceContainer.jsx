@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import GraphData from '../components/GraphData';
 
-function UploadContainer({ query, metrics }) {
+function UploadContainer({ metrics }) {
+  let hasMetrics = false;
+  if (Object.keys(metrics).length > 0) hasMetrics = true;
   return (
     <div className="performance-container">
       {
-        query ? <GraphData metrics={metrics}/> 
+        hasMetrics ? <GraphData metrics={metrics}/> 
           : <p>No results to display...</p> 
       }
     </div>

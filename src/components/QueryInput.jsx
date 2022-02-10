@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 
 import CodeMirror from '@uiw/react-codemirror';
@@ -12,13 +12,13 @@ import 'codemirror-graphql/lint';
 import 'codemirror-graphql/mode';
 require('codemirror/mode/markdown/markdown');
 
-function QueryInput({ query, setQuery, setMutation }) {
+function QueryInput({ query, setQuery, setExecRequest, setMetrics}) {
   const [input, setInput] = useState(query);
 
   const reset = () => {
     setInput('');
     setQuery('');
-    setMutation('');
+    setMetrics({});
   };
 
   const handleChange = (value) => {
@@ -27,6 +27,7 @@ function QueryInput({ query, setQuery, setMutation }) {
   
   const handleSubmit = (e) =>{
     e.preventDefault();
+    setExecRequest(true);
     setQuery(input);
   };
 
