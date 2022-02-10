@@ -48,13 +48,13 @@ function QueryInput({ setQuery, setMutation }) {
 
 
   return (
-    <div>
+    <div className='input-box'>
       <p>Query Input</p>
       <CodeMirror 
         value={input}
-        height='200px'
+        height='30rem'
         name='input'
-        width='500px'
+        width='20rem'
         onChange={(value) => handleChange(value)}
         theme={oneDark}
         options={{ 
