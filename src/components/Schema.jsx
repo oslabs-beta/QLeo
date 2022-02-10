@@ -86,9 +86,6 @@ function Schema() {
     schemaTypes.push(<h4>Fields:</h4>);
     reqData.fields.forEach((el) => schemaTypes.push(<QueryItem typeDef={el} setReqData={setReqData} prev={prev} setPrev={setPrev} parent={reqData}/>));
   }
-  console.log(prev);
-  // const mutationTypes = [];
-  // data['__schema'].mutationType.fields.forEach((el) => mutationTypes.push(<MutationItem typeDef={el}/>));
 
   console.log(reqData);
   const backHandler = () =>{
@@ -100,11 +97,10 @@ function Schema() {
   };
 
   return (
-    <div className="schema">
-      <h1>Schema <button onClick={backHandler}>Back</button></h1>
+    <div className="pt-3 pl-3 w-80">
+      <h1>Schema <button className="text-xs" onClick={backHandler}>Back</button></h1>
       {isRoot && <Root setIsRoot={setIsRoot} data={data['__schema']} setReqData={setReqData}/>}
       {!isRoot && schemaTypes}
-     
     </div>
   );
 }

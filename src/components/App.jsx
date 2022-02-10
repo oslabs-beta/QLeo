@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { render } from 'react-dom';
+import {
+  Link,
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
 import { gql } from '@apollo/client';
-import QueryInput from './QueryInput';
-import Detail from './Detail';
-import NavBar from './Navbar';
-import Schema from './Schema';
-import GraphData from './GraphData';
-import FileUpload from './FileUpload';
+import NavBar from './NavBar';
+import MainContainer from '../containers/MainContainer';
 
 
 import '../css/App.css';
@@ -40,33 +43,15 @@ const CREATE_PERSON = gql`
 `;
 
 function App() {
-  const [query, setQuery] = useState('');
-  const [mutation, setMutation] = useState('');
-  const [metrics, setMetrics] = useState({});
+  // const [query, setQuery] = useState('');
+  // const [metrics, setMetrics] = useState({});
 
   return (
     <div>
-      {/* <NavBar /> */}
-      <div className="main">
-        <Schema />
-        <FileUpload />
-        <QueryInput 
-          setQuery={setQuery}
-        />
-        {
-          query ? <GraphData query={gql`${query}`} metrics={metrics}/> 
-            : mutation ? <GraphData mutation={gql`${mutation}`} /> 
-              : <p>No results to display...</p> 
-        }
-        <p>GraphQL performance details</p>
-        {
-          // query ? <Detail query={gql`${query}`} /> 
-          //   : mutation ? <Mutation mutation={gql`${mutation}`} /> 
-          //     : <p>No results to display...</p> 
-          query ? <Detail query={query} setGlobalMetrics={setMetrics}/> : <p>No results to display</p>
-        }
-      </div>
-      <div className="bg-gray-500 p-5 text-center">Tailwind</div>
+      <Router>
+        <NavBar />
+        <MainContainer/>
+      </Router>
     </div>
   );
 }

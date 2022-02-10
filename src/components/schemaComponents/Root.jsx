@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-
-
 function Root({setIsRoot, setReqData, data}) {
 
   function clickHanlder(e) {
@@ -17,7 +15,7 @@ function Root({setIsRoot, setReqData, data}) {
 
   return (
     <div className="schema-content">
-      <div><h2>root query </h2> 
+      <div><h2>Root: </h2> 
         <button onClick={clickHanlder}>Query</button>
         <button onClick={clickHanlder}>Mutation</button>
       </div>
