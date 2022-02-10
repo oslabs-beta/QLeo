@@ -19,7 +19,7 @@ function App() {
   const [metrics, setMetrics] = useState({});
 
   return (
-    <div>
+    <div className="bg-bgNavy h-screen">
       <Router>
         <NavBar />
 

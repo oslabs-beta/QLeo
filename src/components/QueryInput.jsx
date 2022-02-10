@@ -50,8 +50,8 @@ function QueryInput({ query, setQuery, setExecRequest, setMetrics}) {
           smartIndent: true, 
           lineWrapping: true }}
       />
-      <button className='submit-btn' onClick={handleSubmit}>Submit </button>
-      <button className='submit-btn' onClick={reset}>Reset </button>
+      <button className='bg-gray-800 hover:bg-blue-900 text-white py-2 px-4 rounded-full' onClick={handleSubmit}>Submit </button>
+      <button className='bg-gray-800 hover:bg-blue-900 text-white py-2 px-4 rounded-full' onClick={reset}>Reset </button>
     </div>
   );
 }
