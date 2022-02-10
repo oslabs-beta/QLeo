@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { gql } from '@apollo/client';
 import FileUpload from '../components/FileUpload';
 import QueryInput from '../components/QueryInput';
 import Detail from '../components/Detail';
 import Schema from '../components/Schema';
 import GraphData from '../components/GraphData';
 
-function mainContainer({ query, setGlobalMetrics }) {
-  
+function MainContainer() {
+  const [query, setQuery] = useState('');
+  const [metrics, setMetrics] = useState({});
   return (
     <div className="main">
       <Schema />
@@ -26,4 +28,4 @@ function mainContainer({ query, setGlobalMetrics }) {
   );
 }
 
-export default mainContainer;
+export default MainContainer;
