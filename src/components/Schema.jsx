@@ -97,7 +97,7 @@ function Schema() {
   };
 
   return (
-    <div className="pt-3 pl-3 w-80">
+    <div className="pt-3 pl-3 w-full">
       <h1>Schema <button className="text-xs" onClick={backHandler}>Back</button></h1>
       {isRoot && <Root setIsRoot={setIsRoot} data={data['__schema']} setReqData={setReqData}/>}
       {!isRoot && schemaTypes}
