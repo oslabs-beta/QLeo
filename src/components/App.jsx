@@ -55,6 +55,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<MainContainer query={query} metrics={metrics} setQuery={setQuery} setMetrics={setMetrics}/>} />
+          <Route path='*' element={<MainContainer query={query} metrics={metrics} setQuery={setQuery} setMetrics={setMetrics}/>} />
           <Route path='/upload' element={<UploadContainer query={query} metrics={metrics}/>} />
           <Route path='/performance' element={<PerformanceContainer query={query} metrics={metrics}/>}/>
           {/* <Route path='/links' element={<LinksContainer/>}/> */}
