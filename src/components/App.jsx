@@ -4,11 +4,8 @@ import QueryInput from './QueryInput';
 import Detail from './Detail';
 import Schema from './Schema';
 import GraphData from './GraphData';
-<<<<<<< HEAD
 import NavBar from './NavBar';
-=======
 import FileUpload from './FileUpload';
->>>>>>> 6555e2e476646b8158c0978fa78c46674f64feb8
 
 
 import '../css/App.css';
