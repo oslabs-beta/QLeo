@@ -12,8 +12,8 @@ import 'codemirror-graphql/lint';
 import 'codemirror-graphql/mode';
 require('codemirror/mode/markdown/markdown');
 
-function QueryInput({ setQuery, setMutation }) {
-  const [input, setInput] = useState('');
+function QueryInput({ query, setQuery, setMutation }) {
+  const [input, setInput] = useState(query);
 
   const reset = () => {
     setInput('');
@@ -31,13 +31,12 @@ function QueryInput({ setQuery, setMutation }) {
   };
 
   return (
-    <div className='input-box'>
+    <div className='input-box w-full'>
       <p>Query Input</p>
       <CodeMirror 
         value={input}
         height='30rem'
         name='input'
-        width='20rem'
         onChange={(value) => handleChange(value)}
         theme={oneDark}
         options={{ 

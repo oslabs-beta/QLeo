@@ -2,12 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-  h1 {
-    font-size: 21px;
-    font-weight: 200;
-  }
+h1 {
+  font-size: 21px;
+  font-weight: 200;
+}
 
-  .main-container {
-      display: flex;
-      justify-content: space-between;
-  }
+.bg-navy {
+  background-color: #041c32;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+}
