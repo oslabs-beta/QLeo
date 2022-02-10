@@ -7,7 +7,7 @@
     font-weight: 200;
   }
 
-  .main {
+  .main-container {
       display: flex;
       justify-content: space-between;
   }

@@ -43,14 +43,14 @@ const CREATE_PERSON = gql`
 `;
 
 function App() {
-  // const [query, setQuery] = useState('');
-  // const [metrics, setMetrics] = useState({});
+  const [query, setQuery] = useState('');
+  const [metrics, setMetrics] = useState({});
 
   return (
     <div>
       <Router>
         <NavBar />
-        <MainContainer/>
+        <MainContainer query={query} metrics={metrics} setQuery={setQuery} setMetrics={setMetrics}/>
       </Router>
     </div>
   );
