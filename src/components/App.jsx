@@ -19,7 +19,7 @@ function App() {
   const [metrics, setMetrics] = useState({});
 
   return (
-    <div>
+    <div className="app h-screen">
       <Router>
         <NavBar />
 

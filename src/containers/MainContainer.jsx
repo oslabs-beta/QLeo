@@ -7,7 +7,7 @@ function MainContainer({query, metrics, setQuery, setMetrics}) {
   const [execRequest, setExecRequest] = useState(false);
 
   return (
-    <div className="container w-full mx-auto p-5 flex justify-center flex-grow mt-1 bg-navy">
+    <div className="container w-full p-5 m-0 flex justify-between flex-grow text-primary">
       <Schema />
       <QueryInput 
         setQuery={setQuery}
