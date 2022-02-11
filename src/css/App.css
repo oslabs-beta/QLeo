@@ -7,11 +7,66 @@ h1 {
   font-weight: 200;
 }
 
-.bg-navy {
+/* .bg-navy {
   background-color: #041c32;
+} */
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.app {
+  background-color: #202231;
+  /* background-color: #47505e; */
 }
 
 .main-container {
   display: flex;
   justify-content: space-between;
+  background-color: 212121;
+  padding: 0;
+}
+
+.navbar {
+  /* background-color: #455552; */
+  background-color: #202231;
+  padding: 0.5em 0em 0.5em 0em;
+  border-bottom: 0.1em solid rgb(189, 189, 189);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #e7eeea;
+  font-family: "Poppins", sans-serif;
+}
+
+.querytitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.querybar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.1em solid rgb(189, 189, 189);
+}
+
+.query-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.schema {
+  line-height: 2rem;
+}
+.schema button {
+  text-decoration: underline;
+}
+
+.detail-container {
+  padding: 1em;
+  margin-left: 3em;
 }

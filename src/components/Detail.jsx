@@ -38,12 +38,12 @@ function Detail({ query, metrics, execRequest, setMetrics, setExecRequest }) {
 
   return (
     <div className="detail-container">
-      <p>GraphQL performance details</p>
+      <p className = "font-bold text-lg mb-2">GraphQL Performance Details:</p>
       {isQuery ? <QueryHook query={query} setMetrics={setMetrics} setExecRequest={setExecRequest}/> 
         : isMutation ? <MutationHook query={query} setMetrics={setMetrics} setExecRequest={setExecRequest}/> 
           : <></>}
-      <div className="query-time">Query Response Time: {metrics.queryTime || 'N/A'}</div>
-      <div className="resolver-breakdown">Resolver Breakdown:</div>
+      <div className="font-semibold ml-5">Query Response Time: {metrics.queryTime || 'N/A'}</div>
+      <div className="font-semibold ml-5">Resolver Breakdown:</div>
       <Dropdown obj={metrics} indent={1} />
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 import CodeMirror from '@uiw/react-codemirror';
@@ -33,15 +33,25 @@ function QueryInput({ query, setQuery, setExecRequest, setMetrics}) {
 
   return (
     <div className='input-box w-full'>
-      <p>Query Input</p>
+      <div className="querybar">
+        <div className="querytitle">Query Input</div>
+        <div className="query-btn">
+          <button type="button" 
+            className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            onClick={handleSubmit}>Submit</button>
+          <button type="button" className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+            onClick={reset}>Reset</button> 
+        </div>
+      </div>
+
       <CodeMirror 
         value={input}
-        height='30rem'
+        height='40rem'
+        width='40em'
         name='input'
         onChange={(value) => handleChange(value)}
         theme={oneDark}
         options={{ 
-          theme: 'monokai',
           lineNumbers: true, 
           mode: 'graphql', 
           lint: {
@@ -50,8 +60,7 @@ function QueryInput({ query, setQuery, setExecRequest, setMetrics}) {
           smartIndent: true, 
           lineWrapping: true }}
       />
-      <button className='bg-gray-800 hover:bg-blue-900 text-white py-2 px-4 rounded-full' onClick={handleSubmit}>Submit </button>
-      <button className='bg-gray-800 hover:bg-blue-900 text-white py-2 px-4 rounded-full' onClick={reset}>Reset </button>
+  
     </div>
   );
 }
