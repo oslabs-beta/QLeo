@@ -4,11 +4,11 @@ import { gql, useQuery } from '@apollo/client';
 import Dropdown from './Dropdown';
 
 
-function MutationHook({query, setMetrics, setGlobalMetrics}){
+function MutationHook({query, setMetrics, setExecRequest}){
   const  [ mutationFunc , { data, loading , error }] = useMutation(gql`${query}`, {
     onCompleted: data => {
+      setExecRequest(false);
       setMetrics(data.extensions.performanceData);
-      setGlobalMetrics(data.extensions.performanceData);
     },
     fetchPolicy: 'no-cache'
   });
@@ -19,32 +19,31 @@ function MutationHook({query, setMetrics, setGlobalMetrics}){
   return null;
 }
 
-function QueryHook({query, setMetrics, setGlobalMetrics}){
+function QueryHook({query, setMetrics, setExecRequest}){
   const { loading, error, data } = useQuery(gql`${query}`, {
     onCompleted: (data) => {
+      setExecRequest(false);
       setMetrics(data.extensions.performanceData);
-      setGlobalMetrics(data.extensions.performanceData);
     },
     fetchPolicy: 'no-cache'
   });
   return null;
 }
 
-function Detail({ query, setGlobalMetrics }) {
-  const [ metrics, setMetrics] = useState({});
-  let isQuery, isMutation;
+function Detail({ query, metrics, execRequest, setMetrics, setExecRequest }) {
+  let isQuery = false, isMutation = false;
   
-  if (query.trim().substring(0,8) === 'mutation') isMutation = true;
-  else if (query.trim().substring(0,5) === 'query') isQuery = true;
+  if (execRequest && query.trim().substring(0,8) === 'mutation') isMutation = true;
+  else if (execRequest && query.trim().substring(0,5) === 'query') isQuery = true;
 
   return (
     <div className="detail-container">
-      <p>GraphQL performance details</p>
-      {isQuery ? <QueryHook query={query} setMetrics={setMetrics} setGlobalMetrics={setGlobalMetrics}/> : 
-        isMutation ? <MutationHook query={query} setMetrics={setMetrics} setGlobalMetrics={setGlobalMetrics}/> :
-          <p>nothing</p>}
-      <div className="query-time">Query Response Time: {metrics.queryTime}</div>
-      <div className="resolver-breakdown">Resolver Breakdown:</div>
+      <p className = "font-bold text-lg mb-2">GraphQL Performance Details:</p>
+      {isQuery ? <QueryHook query={query} setMetrics={setMetrics} setExecRequest={setExecRequest}/> 
+        : isMutation ? <MutationHook query={query} setMetrics={setMetrics} setExecRequest={setExecRequest}/> 
+          : <></>}
+      <div className="font-semibold ml-5">Query Response Time: {metrics.queryTime || 'N/A'}</div>
+      <div className="font-semibold ml-5">Resolver Breakdown:</div>
       <Dropdown obj={metrics} indent={1} />
     </div>
   );

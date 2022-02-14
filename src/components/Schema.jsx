@@ -87,7 +87,6 @@ function Schema() {
     reqData.fields.forEach((el) => schemaTypes.push(<QueryItem typeDef={el} setReqData={setReqData} prev={prev} setPrev={setPrev} parent={reqData}/>));
   }
 
-  console.log(reqData);
   const backHandler = () =>{
     if (prev === null) setIsRoot(true);
     else {
@@ -97,8 +96,8 @@ function Schema() {
   };
 
   return (
-    <div className="pt-3 pl-3 w-full">
-      <h1>Schema <button className="text-xs" onClick={backHandler}>Back</button></h1>
+    <div className="pt-3 pl-3 w-full schema">
+      <h1 className="mb-2 font-bold">Schema <button className="text-xs" onClick={backHandler}>Back</button></h1>
       {isRoot && <Root setIsRoot={setIsRoot} data={data['__schema']} setReqData={setReqData}/>}
       {!isRoot && schemaTypes}
     </div>

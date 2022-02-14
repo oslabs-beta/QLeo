@@ -15,8 +15,11 @@ function Root({setIsRoot, setReqData, data}) {
 
   return (
     <div className="schema-content">
-      <div><h2>Root: </h2> 
+      <h2>Root: </h2> 
+      <div>
         <button onClick={clickHanlder}>Query</button>
+      </div>
+      <div>
         <button onClick={clickHanlder}>Mutation</button>
       </div>
     </div>
