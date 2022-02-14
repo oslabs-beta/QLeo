@@ -1,5 +1,5 @@
 const { Person, Species, Planet } = require('./models/models.js');
-const typeDefs = require('./schema.js');
+const typeDefs = require('./typeDefs.js');
 
 const resolvers = {
   Query: {

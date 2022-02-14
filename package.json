@@ -49,6 +49,7 @@
     "codemirror-graphql": "^1.2.11",
     "cors": "^2.8.5",
     "graphql": "^16.3.0",
+    "graphql-tools": "^8.2.0",
     "lodash": "^4.17.21",
     "mongoose": "^6.2.0",
     "pg": "^8.7.1",

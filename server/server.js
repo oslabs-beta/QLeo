@@ -1,5 +1,5 @@
-const typeDefs = require('./src/mongo/schema');
-const resolvers = require('./src/mongo/resolvers');
+const schema = require('./src/mongoSchemaOne/schema');
+// const schema = require('./src/sqlSchemaOne/schema');
 
 const express =  require('express');
 const { ApolloServer } = require('apollo-server-express');
@@ -40,8 +40,7 @@ app.post('/updateJson', (req, res) => {
 let server = null;
 async function startServer() {
   server = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema,
     plugins: [
       plugins,
       ApolloServerPluginInlineTrace(),
