@@ -19,6 +19,7 @@ function Navbar() {
           <li className="nav-item">Getting Started</li>
           <li className="nav-item">Meet the Team</li>
         </ul>
+
         {/* <ExternalLink href="https://github.com/oslabs-beta/QLeo">
             <img src={github} alt="Github"/>
         </ExternalLink>
