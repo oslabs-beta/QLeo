@@ -8,7 +8,7 @@ function FileUpload() {
     const pathName = event.target.files[0].path;
 
 
-    fetch('http://localhost:3000/updateJson/', {
+    fetch('http://localhost:3000/upload/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,7 +21,14 @@ function FileUpload() {
 
   return (
     <div id="upload-box">
-      <input type="file" onChange={handleUpload} />
+      <div className="input-box">
+        <label htmlFor='package'>Package Json</label>
+        <input type="file" onChange={handleUpload} />
+      </div>
+      <div className="input-box">
+        <label htmlFor="schema">Schema</label>
+        <input type="file" onChange={handleUpload} />
+      </div>
     </div>
   );
 }
