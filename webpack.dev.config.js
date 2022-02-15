@@ -16,7 +16,7 @@ module.exports = {
       },
       {
         test: /\.(jsx|js|ts|tsx)?$/,
-        use: [{ loader: 'babel-loader' }],
+        use: [{ loader: 'babel-loader' }, { loader: 'ts-loader' }],
         include: defaultInclude
       },
       {
@@ -57,6 +57,6 @@ module.exports = {
     }
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.ts', '.tsx'],
   }
 };
