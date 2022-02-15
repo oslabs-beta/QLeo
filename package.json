@@ -37,7 +37,8 @@
     "package": "npm run build",
     "postpackage": "electron-packager ./ --out=./builds",
     "lint": "eslint --fix --ext .js,.jsx .",
-    "server": "nodemon server/server.js"
+    "server": "nodemon server/server.js",
+    "landing": "cross-env NODE_ENV=development webpack serve --config webpack.landing.config.js "
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
@@ -54,6 +55,7 @@
     "codemirror-graphql": "^1.2.11",
     "cors": "^2.8.5",
     "graphql": "^16.3.0",
+    "graphql-tools": "^8.2.0",
     "lodash": "^4.17.21",
     "mongoose": "^6.2.0",
     "pg": "^8.7.1",
@@ -64,6 +66,9 @@
     "ts-loader": "^9.2.6",
     "tsc": "^2.0.4",
     "typescript": "^4.5.5"
+    "react-external-link": "^1.2.2",
+    "react-router-dom": "^6.2.1",
+    "react-scroll": "^1.8.4"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
