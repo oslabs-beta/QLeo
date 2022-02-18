@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { gql, useQuery } from '@apollo/client';
-import QueryItem from './FieldItem';
-import MutationItem from './MutationSchemaItem';
+import QueryItem from './schemaComponents/FieldItem';
 import Root from './schemaComponents/Root';
 
 const introQuery = gql `
@@ -74,6 +73,7 @@ function Schema() {
   if (error) {
     return <p>There was an error: {JSON.stringify(error)}</p>;
   }
+  console.log(reqData);
   
   const schemaTypes = [];
   if (Object.keys(reqData).length > 0) {
