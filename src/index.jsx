@@ -7,6 +7,7 @@ import {
 } from '@apollo/client';
 import { linksChain } from './utils/links';
 
+
 import App from './components/App';
 
 const client = new ApolloClient({
