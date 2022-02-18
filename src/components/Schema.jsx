@@ -77,7 +77,6 @@ function Schema() {
   
   const schemaTypes = [];
   if (Object.keys(reqData).length > 0) {
-    schemaTypes.push(<h4>{reqData.name}</h4>);
     if (reqData.args !== undefined){
       schemaTypes.push(<h4>Arguments:</h4>);
       console.log('args',reqData.args);
@@ -95,9 +94,16 @@ function Schema() {
     }
   };
 
+  let button;
+  if (prev) button = `.../ ${prev.typeDef.name} / ${reqData.name}`;
+  else if (isRoot) button = '.../ root';
+  else button = `.../ root / ${reqData.name}`;
+  
+
   return (
     <div className="pt-3 pl-3 w-full schema">
-      <h1 className="mb-2 font-bold">Schema <button className="text-xs" onClick={backHandler}>Back</button></h1>
+      <h1 className="mb-2 font-bold">Schema</h1>
+      <button className="text-xs" onClick={backHandler}>{button}</button>
       {isRoot && <Root setIsRoot={setIsRoot} data={data['__schema']} setReqData={setReqData}/>}
       {!isRoot && schemaTypes}
     </div>
