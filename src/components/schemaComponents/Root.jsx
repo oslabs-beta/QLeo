@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Root({setIsRoot, setReqData, data}) {
+function Root({setIsRoot, setReqData, setPrev, data}) {
 
   function clickHanlder(e) {
     e.preventDefault();
@@ -15,7 +15,6 @@ function Root({setIsRoot, setReqData, data}) {
 
   return (
     <div className="schema-content">
-      <h2>Root: </h2> 
       <div>
         <button onClick={clickHanlder}>Query</button>
       </div>
