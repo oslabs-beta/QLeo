@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { render } from 'react-dom';
 import {
   Link,
   HashRouter as Router,
   Routes,
   Route
 } from 'react-router-dom';
-import { gql } from '@apollo/client';
 import NavBar from './Navbar';
 import MainContainer from '../containers/MainContainer';
 import UploadContainer from '../containers/UploadContainer';
@@ -19,7 +17,7 @@ function App() {
   const [metrics, setMetrics] = useState({});
 
   return (
-    <div className="app h-screen">
+    <div className="app h-screen bg-black">
       <Router>
         <NavBar />
 
