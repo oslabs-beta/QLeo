@@ -1,18 +1,19 @@
 {
   "name": "qleo",
+  "productName": "QLeo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Electron app for QLeo graphQL performance tool",
   "main": "main.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/irinekangg/QLeo.git"
+    "url": "git+https://github.com/oslabs-beta/QLeo"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/irinekangg/QLeo/issues"
+    "url": "https://github.com/oslabs-beta/QLeo/issues"
   },
-  "homepage": "https://github.com/irinekangg/QLeo#readme",
+  "homepage": "https://github.com/oslabs-beta/QLeo",
   "keywords": [
     "app",
     "electron",
@@ -38,7 +39,9 @@
     "postpackage": "electron-packager ./ --out=./builds",
     "lint": "eslint --fix --ext .js,.jsx .",
     "server": "nodemon server/server.js",
-    "landing": "cross-env NODE_ENV=development webpack serve --config webpack.landing.config.js "
+    "landing": "cross-env NODE_ENV=development webpack serve --config webpack.landing.config.js ",
+    "package-linux": "electron-packager . qleo --overwrite --asar=true --platform=linux --arch=x64  --prune=true --out=release-builds",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName='QLeo'"
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
