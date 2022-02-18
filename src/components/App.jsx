@@ -22,9 +22,9 @@ function App() {
         <NavBar />
 
         <Routes>
-          <Route path='upload' element={<UploadContainer/>} />
           <Route path='performance' element={<PerformanceContainer metrics={metrics}/>} />
-          <Route path='*' element={<MainContainer query={query} metrics={metrics} setQuery={setQuery} setMetrics={setMetrics}/>} />
+          <Route path='dashboard' element={<MainContainer query={query} metrics={metrics} setQuery={setQuery} setMetrics={setMetrics}/>} />
+          <Route path='*' element={<UploadContainer/>} />
         </Routes>
       </Router>
     </div>
