@@ -42,7 +42,10 @@ function Detail({ query, metrics, execRequest, setMetrics, setExecRequest }) {
       {isQuery ? <QueryHook query={query} setMetrics={setMetrics} setExecRequest={setExecRequest}/> 
         : isMutation ? <MutationHook query={query} setMetrics={setMetrics} setExecRequest={setExecRequest}/> 
           : <></>}
-      <div className="font-semibold ml-5">Query Response Time: {metrics.queryTime || 'N/A'}</div>
+      <div className="font-semibold ml-5">
+        <p>Query Response Time</p>
+        <p>{metrics.queryTime || 'N/A'}</p>
+      </div>
       <div className="font-semibold ml-5">Resolver Breakdown:</div>
       <Dropdown obj={metrics} indent={1} />
     </div>
