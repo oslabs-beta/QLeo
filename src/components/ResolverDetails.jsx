@@ -6,7 +6,7 @@ const PerofrmanceDetail = ({time, calls}) => {
       <p>Time: {time[0]}</p>
       <p>Calls: {calls}</p>
     </div>
- );
+  );
 };
 
 const ResolverDetails = ({ obj, resolver }) => {
