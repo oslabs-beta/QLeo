@@ -1,7 +1,7 @@
 import React from 'react';
 import GraphData from '../components/GraphData';
 
-function UploadContainer({ metrics }) {
+function PerformanceContainer({ metrics }) {
   let hasMetrics = false;
   if (Object.keys(metrics).length > 0) hasMetrics = true;
   return (
@@ -14,4 +14,4 @@ function UploadContainer({ metrics }) {
   );
 }
 
-export default UploadContainer;
+export default PerformanceContainer;

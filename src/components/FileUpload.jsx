@@ -7,7 +7,7 @@ function FileUpload() {
   const [schema, setSchema] = useState(false);
   const hiddenFileInput = useRef(null);
 
-  // Handles file upload event and updates state
+  // Handles file upload event and post request to server
   function handleUpload(event) {
     const pathName = event.target.files[0].path;
 
@@ -28,6 +28,7 @@ function FileUpload() {
       .then(data => console.log(data));
   }
 
+  // invokes file input tag through a ref
   const handleClick = _event => {
     hiddenFileInput.current.click();
   };
