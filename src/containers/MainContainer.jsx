@@ -16,14 +16,12 @@ function MainContainer({query, metrics, setQuery, setMetrics}) {
         setMetrics={setMetrics}
       />
       <div className='w-full'>
-        {
-          <Detail 
-            query={query} 
-            metrics={metrics}
-            setMetrics={setMetrics}
-            setExecRequest={setExecRequest}
-            execRequest={execRequest}/> 
-        }
+        <Detail 
+          query={query} 
+          metrics={metrics}
+          setMetrics={setMetrics}
+          setExecRequest={setExecRequest}
+          execRequest={execRequest}/> 
       </div>
     </div>
   );
