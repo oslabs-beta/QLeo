@@ -88,6 +88,7 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', ()=>{
+  server = require('./server/server');
   createWindow();
 });
 
@@ -98,13 +99,13 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
   }
+  
   server.close();
 });
 
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  server = require('./server/server');
   if (mainWindow === null) {
     createWindow();
   }
