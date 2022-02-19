@@ -66,7 +66,7 @@ function QueryItem({ typeDef, setReqData, setPrev, prev, parent }) {
 
     return (
       <div>
-        {<button onClick={clickHandler}>{`${typeDef.name}: ${type}`}</button>}
+        {<button className="underline" onClick={clickHandler}>{`${typeDef.name}: ${type}`}</button>}
       </div>
     );
   }

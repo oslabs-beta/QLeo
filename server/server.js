@@ -62,3 +62,5 @@ async function startServer(schema) {
 app.listen(PORT, ()=> {
   console.log(`Server listening on port: ${PORT}...`);
 });
+
+module.export = app;

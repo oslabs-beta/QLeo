@@ -39,7 +39,6 @@
     "postpackage": "electron-packager ./ --out=./builds",
     "lint": "eslint --fix --ext .js,.jsx .",
     "server": "nodemon server/server.js",
-    "landing": "cross-env NODE_ENV=development webpack serve --config webpack.landing.config.js ",
     "package-linux": "electron-packager . qleo --overwrite --asar=true --platform=linux --arch=x64  --prune=true --out=release-builds",
     "package-win": "electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=false --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName='QLeo'"
   },
@@ -51,6 +50,9 @@
     "@types/node": "^17.0.17",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
+    "@fortawesome/fontawesome-svg-core": "^1.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.0.0",
+    "@fortawesome/react-fontawesome": "^0.1.17",
     "@uiw/react-codemirror": "^4.3.3",
     "apollo-server-express": "^3.6.3",
     "chart.js": "^3.7.0",
@@ -65,12 +67,10 @@
     "react": "^17.0.2",
     "react-chartjs-2": "^4.0.1",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.2.1",
     "ts-loader": "^9.2.6",
     "tsc": "^2.0.4",
-    "typescript": "^4.5.5",
-    "react-external-link": "^1.2.2",
-    "react-router-dom": "^6.2.1",
-    "react-scroll": "^1.8.4"
+    "typescript": "^4.5.5"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
