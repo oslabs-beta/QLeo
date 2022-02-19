@@ -13,7 +13,10 @@ module.exports = {
       'text-secondary': '#DDE1E6',
       'text-link': '#CAA055',
       'text-link-hover': '#F2D7A5',
-      'text-disable': '#697077'
+      'text-disable': '#697077',
+      'btn-gray': '#4d5358',
+      'left': '#404040',
+      'right': '#CAA055'
     },
   },
 };

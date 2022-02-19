@@ -38,10 +38,6 @@ function NavBar() {
                     navItems.map((item, idx) => {
                       let basicStyle = 'text-secondary text-secondary px-3 py-2 text-lg font-medium';
 
-                      if (idx === 0) {
-                        basicStyle += ' border-r rounded-none border-bg-gray';
-                      }
-
                       if (item.path === pathname) {
                         basicStyle += ' border-b border-primary rounded-none';
                       }
