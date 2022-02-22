@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
 import { gql, useQuery } from '@apollo/client';
-import Dropdown from './Dropdown';
+import Dropdown from './resolverDetailsComponent/Dropdown';
 
 
 function MutationHook({query, setMetrics, setExecRequest}){
@@ -30,7 +30,7 @@ function QueryHook({query, setMetrics, setExecRequest}){
   return null;
 }
 
-function Detail({ query, metrics, execRequest, setMetrics, setExecRequest }) {
+function ResolversPerformance({ query, metrics, execRequest, setMetrics, setExecRequest }) {
   let isQuery = false, isMutation = false;
   
   if (execRequest && query.trim().substring(0,8) === 'mutation') isMutation = true;
@@ -54,4 +54,4 @@ function Detail({ query, metrics, execRequest, setMetrics, setExecRequest }) {
   );
 }
 
-export default Detail;
+export default ResolversPerformance;
