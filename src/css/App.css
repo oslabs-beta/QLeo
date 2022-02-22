@@ -1,11 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #f2f4f8;
-  font-family: "Poppins", sans-serif;
+  font-family: "Rubik", sans-serif;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

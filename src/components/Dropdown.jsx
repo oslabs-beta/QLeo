@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import ResolverDetails from './ResolverDetails';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Dropdown = ({ obj, indent }) => {
   const [toggle, setToggle] = useState(false);
 
-  const newIndent = indent + 1;
+  const newIndent = indent + 0.75;
   
   return (
     <div>
@@ -12,14 +14,20 @@ const Dropdown = ({ obj, indent }) => {
         if (typeof obj[key] === 'object'){
           if (obj[key].time !== undefined){
             return (
-              <div key={key} style={{ textIndent: `${indent}em` }}>
+              <div key={key} style={{ textIndent: `${indent}em` }} className="p-1.5 border-t border-b border-bg-gray">
                 <ResolverDetails obj={obj[key]} resolver={key}/>
               </div>
             );
           }
           return (
-            <div key={key} style={{ textIndent: `${indent}em` }}>
-              <button onClick={() => setToggle(!toggle)}>{key}</button>
+            <div key={key} className="pl-1.5">
+              <div>
+                <button className="w-full py-1.5 flex justify-between items-center" onClick={() => setToggle(!toggle)}>
+                  <p style={{ textIndent: `${indent}em` }}>{key}</p>
+                  <FontAwesomeIcon icon={toggle ? faChevronUp : faChevronDown } />
+                </button>
+              </div>
+              
               {toggle && <Dropdown obj={obj[key]} indent={newIndent}/>}
             </div>
           );

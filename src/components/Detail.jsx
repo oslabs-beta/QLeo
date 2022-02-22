@@ -37,17 +37,19 @@ function Detail({ query, metrics, execRequest, setMetrics, setExecRequest }) {
   else if (execRequest && query.trim().substring(0,5) === 'query') isQuery = true;
 
   return (
-    <div className="detail-container">
-      <p className = "font-bold text-lg mb-2">GraphQL Performance Details:</p>
+    <div className="w-2/5 ml-5 mr-10 my-6">
+      <p className = "font-bold text-lg pb-4">GraphQL Performance Details</p>
       {isQuery ? <QueryHook query={query} setMetrics={setMetrics} setExecRequest={setExecRequest}/> 
         : isMutation ? <MutationHook query={query} setMetrics={setMetrics} setExecRequest={setExecRequest}/> 
           : <></>}
-      <div className="font-semibold ml-5">
-        <p>Query Response Time</p>
-        <p>{metrics.queryTime || 'N/A'}</p>
+      <div className="p-4 bg-gradient-to-r from-left to-right rounded-lg">
+        <p className = "mb-1 text-xs uppercase tracking-widest">Query Response Time</p>
+        <p>{metrics.queryTime ? metrics.queryTime + 'ms' : '...'}</p>
       </div>
-      <div className="font-semibold ml-5">Resolver Breakdown:</div>
-      <Dropdown obj={metrics} indent={1} />
+      <div className="mt-6 pb-4 border-b border-bg-mirror">
+        <p className="text-xs uppercase tracking-widest">Resolver Breakdown</p>
+      </div>
+      <Dropdown obj={metrics} indent={0}/>
     </div>
   );
 }

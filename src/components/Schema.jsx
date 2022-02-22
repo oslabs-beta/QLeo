@@ -93,15 +93,15 @@ function Schema() {
   };
 
   let button;
-  if (prev) button = `.../ ${prev.typeDef.name} / ${reqData.name}`;
-  else if (isRoot) button = '.../ root';
-  else button = `.../ root / ${reqData.name}`;
+  if (prev) button = `... / ${prev.typeDef.name} / ${reqData.name}`;
+  else if (isRoot) button = '... / root';
+  else button = `... / root / ${reqData.name}`;
 
 
   return (
-    <div className="pt-3 pl-3 w-full schema">
-      <h1 className="mb-2 font-bold">Schema</h1>
-      <button className="text-xs" onClick={backHandler}>{button}</button>
+    <div className="w-1/5 mx-10 my-6">
+      <h1 className="font-bold text-lg pb-2">Schema</h1>
+      <button className="pb-2 text-sm tracking-wider text-link" onClick={backHandler}>{button}</button>
       {isRoot && <Root setIsRoot={setIsRoot} data={data['__schema']} setReqData={setReqData} />}
       {!isRoot && schemaTypes}
     </div>
