@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const PerofrmanceDetail = ({time, calls}) => {
+const PerformanceDetail = ({time, calls}) => {
   return (
-    <div>
+    <div className="py-1 text-sm">
       <p>Time: {time[0]}</p>
       <p>Calls: {calls}</p>
     </div>
@@ -14,9 +14,12 @@ const ResolverDetails = ({ obj, resolver }) => {
   
   return (
     <div>
-      <p>{resolver} <button onClick={() => setToggle(!toggle)}>{toggle ? 'Hide details' : 'See details'}</button></p>
+      <div className="flex justify-between"> 
+        <div>{resolver}</div>
+        <button className="text-link hover:text-link-hover text-sm" onClick={() => setToggle(!toggle)}>{toggle ? 'Hide details' : 'Show details'}</button>
+      </div>
       
-      {toggle && <PerofrmanceDetail time={obj.time} calls={obj.trips}/>}
+      {toggle && <PerformanceDetail time={obj.time} calls={obj.trips}/>}
     </div>
   );
 };

@@ -34,9 +34,9 @@ function FileUpload() {
   };
 
   return (
-    <div className="flex mt-20">
-      <div className="flex flex-col items-center px-8 border-r-2 border-bg-gray">
-        <p className='text-sm py-2'>STEP 1</p>
+    <div className="flex mt-10">
+      <div className="flex flex-col items-center px-10 border-r border-bg-mirror">
+        <p className='text-sm py-2 uppercase tracking-widest'>Step 1</p>
         <p className='text-xl py-2'>Upload your package.json</p>
         <input type="file" onChange={handleUpload} ref={hiddenFileInput} hidden/>
         <button 
@@ -48,8 +48,8 @@ function FileUpload() {
         </button>
       </div>
 
-      <div className="flex flex-col items-center px-8">
-        <p className='text-sm py-2'>STEP 2</p>
+      <div className="flex flex-col items-center px-10">
+        <p className='text-sm py-2 uppercase tracking-widest'>Step 2</p>
         <p className='text-xl py-2'>Upload your schema file</p>
         <input type="file" onChange={handleUpload} ref={hiddenFileInput} hidden/>
         <button  
