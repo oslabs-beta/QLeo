@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const PerofrmanceDetail = ({time, calls}) => {
   return (
     <div>
-      <p>Time: {time[0]}</p>
+      <p>Average time: {time.reduce((avg, current, index, arr) =>  (avg + current / arr.length), 0)}</p>
       <p>Calls: {calls}</p>
     </div>
   );

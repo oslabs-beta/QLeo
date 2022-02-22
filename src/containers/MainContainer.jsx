@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import QueryInput from '../components/QueryInput';
-import Detail from '../components/Detail';
+import ResolversPerformance from '../components/ResolversPerformance';
 import Schema from '../components/Schema';
 
 function MainContainer({query, metrics, setQuery, setMetrics}) {
@@ -16,7 +16,7 @@ function MainContainer({query, metrics, setQuery, setMetrics}) {
         setMetrics={setMetrics}
       />
       <div className='w-full'>
-        <Detail 
+        <ResolversPerformance 
           query={query} 
           metrics={metrics}
           setMetrics={setMetrics}

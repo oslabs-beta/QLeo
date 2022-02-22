@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 
 import CodeMirror from '@uiw/react-codemirror';
-import { ValidationContext, SDLValidationContext } from 'graphql';
+// import { ValidationContext, SDLValidationContext } from 'graphql';
 import { oneDark } from '@codemirror/theme-one-dark';
 import 'codemirror/keymap/sublime';
 import 'codemirror/addon/hint/show-hint';
