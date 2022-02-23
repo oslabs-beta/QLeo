@@ -2,9 +2,8 @@ import React, { useState, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
-function FileUpload() {
+function FileUpload({ schema, setSchema }) {
   const [ packages, setPackages] = useState(false);
-  const [schema, setSchema] = useState(false);
   const hiddenFileInput = useRef(null);
 
   // Handles file upload event and post request to server
