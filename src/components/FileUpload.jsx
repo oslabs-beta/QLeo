@@ -7,7 +7,7 @@ function FileUpload() {
   const [schema, setSchema] = useState(false);
   const hiddenFileInput = useRef(null);
 
-  // Handles file upload event and updates state
+  // Handles file upload event and post request to server
   function handleUpload(event) {
     const pathName = event.target.files[0].path;
 
@@ -28,14 +28,15 @@ function FileUpload() {
       .then(data => console.log(data));
   }
 
+  // invokes file input tag through a ref
   const handleClick = _event => {
     hiddenFileInput.current.click();
   };
 
   return (
-    <div className="flex mt-20">
-      <div className="flex flex-col items-center px-8 border-r-2 border-bg-gray">
-        <p className='text-sm py-2'>STEP 1</p>
+    <div className="flex mt-10">
+      <div className="flex flex-col items-center px-10 border-r border-bg-mirror">
+        <p className='text-sm py-2 uppercase tracking-widest'>Step 1</p>
         <p className='text-xl py-2'>Upload your package.json</p>
         <input type="file" onChange={handleUpload} ref={hiddenFileInput} hidden/>
         <button 
@@ -47,8 +48,8 @@ function FileUpload() {
         </button>
       </div>
 
-      <div className="flex flex-col items-center px-8">
-        <p className='text-sm py-2'>STEP 2</p>
+      <div className="flex flex-col items-center px-10">
+        <p className='text-sm py-2 uppercase tracking-widest'>Step 2</p>
         <p className='text-xl py-2'>Upload your schema file</p>
         <input type="file" onChange={handleUpload} ref={hiddenFileInput} hidden/>
         <button  

@@ -5,7 +5,7 @@ const path = require('path');
 const url = require('url');
 const { exec } = require('child_process');
 const { Server } = require('http');
-let server;
+const server = require('./server/server');
 
 let mainWindow;
 
@@ -88,7 +88,6 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', ()=>{
-  server = require('./server/server');
   createWindow();
 });
 
@@ -98,9 +97,8 @@ app.on('window-all-closed', () => {
   // to stay active until the user quits explicitly with Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit();
+    server.close();
   }
-  
-  server.close();
 });
 
 app.on('activate', () => {

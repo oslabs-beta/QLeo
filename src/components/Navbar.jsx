@@ -22,44 +22,27 @@ function NavBar() {
   const { pathname } = useLocation();
 
   return (
-    <div>
-      <nav className="border-b border-2 border-bg-gray">
-        <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <header className='m-1'>
-                 QLEO
-                </header>
-              </div>
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  {
-                    navItems.map((item, idx) => {
-                      let basicStyle = 'text-secondary text-secondary px-3 py-2 text-lg font-medium';
+    <nav className="px-10 pt-3 flex items-center border border-b border-bg-mirror">
+      <header className="text-lg tracking-wider pr-10 mr-10 border-r border-bg-mirror">QLEO</header>
+      <div className="flex space-x-4">
 
-                      if (item.path === pathname) {
-                        basicStyle += ' border-b border-primary rounded-none';
-                      }
-                  
-                      return (
-                        <Link
-                          key={idx}
-                          to={item.path}
-                          className={basicStyle}
-                        >
-                          {item.title}
-                        </Link>
-                      );
-                    })
-                  }
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
+        {navItems.map((item, idx) => {
+          let basicStyle = 'px-2 py-6 tracking-wide hover:text-primary';
+          if (item.path === pathname) {
+            basicStyle += ' border-b-4 border-primary rounded-none text-text-primary';
+          }
+
+          return (
+            <Link
+              key={idx}
+              to={item.path}
+              className={basicStyle}>
+              {item.title}
+            </Link>
+          );
+        })}
+      </div>
+    </nav>
   );
 }
 
