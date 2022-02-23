@@ -3,12 +3,12 @@ import QueryInput from '../components/QueryInput';
 import ResolversPerformance from '../components/ResolversPerformance';
 import Schema from '../components/Schema';
 
-function MainContainer({query, metrics, setQuery, setMetrics}) {
+function MainContainer({schema, query, metrics, setQuery, setMetrics}) {
   const [execRequest, setExecRequest] = useState(false);
 
   return (
     <div className="w-full flex mt-4">
-      <Schema />
+      <Schema schema={schema} />
       <QueryInput 
         setQuery={setQuery}
         query={query}

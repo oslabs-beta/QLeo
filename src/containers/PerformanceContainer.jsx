@@ -5,10 +5,10 @@ function PerformanceContainer({ metrics }) {
   let hasMetrics = false;
   if (Object.keys(metrics).length > 0) hasMetrics = true;
   return (
-    <div className="flex justify-center my-10">
+    <div className="my-10">
       {
         hasMetrics ? <GraphData metrics={metrics}/> 
-          : <p className="text-xl">Nothing to see here 👀</p> 
+          : <p className="flex justify-center text-xl">Nothing to see here 👀</p> 
       }
     </div>
   );
