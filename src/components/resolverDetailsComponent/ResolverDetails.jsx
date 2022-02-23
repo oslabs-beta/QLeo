@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const PerformanceDetail = ({time, calls}) => {
   return (
     <div className="py-1 text-sm">
-      <p>Time: {time[0]}</p>
+      <p>Average time: {time.reduce((avg, current, index, arr) =>  (avg + current / arr.length), 0)}</p>
       <p>Calls: {calls}</p>
     </div>
   );
