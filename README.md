@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="src/assets/_example/LionBlackBackground.png">
+  <img src="src/assets/q-logo.png">
   <br/>
   QLeo
 </h1>
@@ -10,42 +10,77 @@
 
 ## What is QLeo?
 
-QLeo provides the necessary data to ensure that your application’s GraphQL data fetching architecture is set up for the most optimized results. For every mutation and query, we have graphical representation of key metrics including the time a resolver takes as well as number of times it was fired. Simply upload your GraphQL schema and QLeo will identify where you can make improvements for efficiency and speed.
+QLeo is designed to be used in a development environment. We provide a simple and intuitive interface with graphical representations of key metrics. This allows developers to debug and tune performance for inefficient GraphQL requests. 
+
+QLeo is in active development. Please follow to the end of the repository for contribution guidelines.
+
+<br/>
+
+## Features
+
+- Easy Configuration: With just a click of a button, QLeo will start to run and allow users to generate performance metrics according to the uploaded schema model.
+- Montior Queries at Resolver-Level: Understand and track GraphQL queries, mutations, response times, and function invocations for individual resolvers. 
+- Visualize: Compare and reveal potential performance bottlenecks utilizing QLeo's illustration to enhance the efficiency of GraphQL API calls.
+
+<img src="src/assets/performance.png">
 
 <br/>
 
 ## Installation
 
-Download our application via our [Website](https://qleo.app) or [Github](https://github.com/oslabs-beta/QLeo/)
+QLeo runs on Electron as a native desktop application.
+The instructions for MacOS users (Intel & M1) are as follows: 
 
-// insert GIF here about how to bypass Mac security
-
-For Mac users, bypass the ... 
+1. Visit the QLeo Official [Website](https://qleo.app) or click [here](https://github.com/oslabs-beta/QLeo/releases/download/v0.1.0/QLeo-darwin-x64.zip) to download! 
+2. Open the application and give access permissions. 
+//add gif here
+3. And that’s it! QLeo is all set and ready to start collecting performance data for any GraphQL requests. 
 
 <br/>
 
 ## How to Use
 
-Once downloaded, simply upload your schema by clicking 'Upload'. 
+1. Open application and upload a schema file.
+2. Navigate to the Dashboard tab - where a schema model, a code editor, and a Metrics directory will be displayed. 
+3. The schema model and types will be available to view on the left panel for easy reference.
+4. Write up a GraphQL query and/or mutation in QLeo’s code editor, then press 'Submit'. 
+5. QLeo will start to gather and display the data on the Metrics directory on the right panel. 
+  - It will display the total query response time. 
+  - It will also display a breakdown of resolvers: 
+    - Toggle the 'Show Details' to view corresponding performance and metrics. 
+6. Navigate to the Performance tab - View your resolver's performance with graphical representation. 
+<br/>
 
-After the schema is uploaded, metrics will populate for the provided schema: queries, mutations, and resolvers.
+## Technologies Involved
 
-There are two key metrics for resolver performance, time and number of times fired. Performance will be indicated on by graphical representation.
+- Electron
+- Javascript ES6+
+- Apollo GraphQL
+- Node.js
+- React
+- Webpack
+- Tailwind CSS
+- CodeMirror Code Editor
 
-For longer query times and multiple firings, we recommend looking into the Data Loader tool to batch queries and improve efficiency
-
-
-// captions will be altered to go along with the GIF
 
 <br/>
 
+## Contributing 
 
-## Creators
+Interested in making a contribution to QLeo? Click [here]() for our open-source contribution guidelines.
 
-* [Andrew Talle](https://www.linkedin.com/in/andrewtalle/)
-* [Chon Hou Ho](https://www.linkedin.com/in/chon-hou-ho/)
-* [Irine Kang](https://www.linkedin.com/in/irinekang/)
-* [Jack Fitzgerald](https://www.linkedin.com/in/jcf7/)
+<br/>
+
+Visit our [website](https://qleo.app) for more information. 
+
+<br/>
+
+## Our Team
+
+* Andrew Talle [Github](https://github.com/ogAndrew) || [LinkedIn](https://www.linkedin.com/in/andrewtalle/)
+* Chon Hou Ho [Github](https://github.com/chon-h) || [LinkedIn](https://www.linkedin.com/in/chon-hou-ho/)
+* Irine Kang [Github](https://github.com/irinekangg) || [LinkedIn](https://www.linkedin.com/in/irinekang/)
+* Jack Fitzgerald [Github](https://github.com/jcf7) || [LinkedIn](https://www.linkedin.com/in/jcf7/)
 
 <br/>
 
@@ -53,24 +88,13 @@ For longer query times and multiple firings, we recommend looking into the Data 
 ## Contact
 
 
-[<img style="height: 1em; width: 1em;" src="src/assets/_example/emailIcon.svg">]()  Email: TeamQLeo@gmail.com
+Email: TeamQLeo@gmail.com
 
-[<img style="height: 1em; width: 1em;" src="src/assets/_example/twitterLogo.svg">]()  Twitter: [@QLeo.App](https://twitter.com/QLeo.App) 
+Twitter: [@QLeo.App](https://twitter.com/QLeo.App) 
 
-[<img style="height: 1em; width: 1em;" src="src/assets/_example/webIcon.svg">]()  Website: [QLeo.App](https://QLeo.App)
+Website: [qleo.app](https://qleo.app)
 
-[<img style="height: 1em; width: 1em;" src="src/assets/_example/githubLogo.svg">]()  GitHub: [https://github.com/oslabs-beta/QLeo/](https://github.com/oslabs-beta/QLeo)
-
-<br/>
-
-
-## Built With
-
-* Electron
-* Node.js
-* Apollo Suite
-* Webpack
-* TailwindCSS
+GitHub: [https://github.com/oslabs-beta/QLeo/](https://github.com/oslabs-beta/QLeo)
 
 <br/>
 

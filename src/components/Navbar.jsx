@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import lion from '../assets/Lion100px.svg';
+import lion from '../assets/q-logo.png';
 
 const navItems = [
   {

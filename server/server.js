@@ -5,7 +5,6 @@ const { updatePackageJson } = require('./utils/updatePackage');
 const cors = require('cors');
 const { fstat } = require('fs');
 const fs = require('fs');
-const { createModuleResolutionCache } = require('typescript');
 const { injectRequire } = require('./utils/injectPaths');
 
 // Set port where we launch the server
