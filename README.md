@@ -63,7 +63,7 @@ The instructions for MacOS users (Intel & M1) are as follows:
 
 7. All previous requests will be saved in the History tab - Refer back to any of the request's performance metrics by simply selecting the corresponding query that was made.
 
-<img src="src/assets/history.png">
+<p align="center"><img src="src/assets/history.png></p>
 
 ## Technologies Involved
 
