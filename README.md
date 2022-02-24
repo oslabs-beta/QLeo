@@ -33,7 +33,7 @@ QLeo is in active development. Please follow to the end of the repository for co
 QLeo runs on Electron as a native desktop application.
 The instructions for MacOS users (Intel & M1) are as follows: 
 
-1. Visit the QLeo Official [Website](https://qleo.app) or click [here](https://github.com/oslabs-beta/QLeo/releases/download/v0.1.0/QLeo-darwin-x64.zip) to download! 
+1. Visit the QLeo Official [Website](https://qleo.app) or click [here](https://github.com//oslabs-beta/QLeo/releases/download/v1.0.0/QLeo.zip) to download! 
 2. Open the application and give access permissions. 
 
 <img src="src/assets/bypass.gif">
