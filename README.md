@@ -21,6 +21,8 @@ QLeo is in active development. Please follow to the end of the repository for co
 - Easy Configuration: With just a click of a button, QLeo will start to run and allow users to generate performance metrics according to the uploaded schema model.
 - Montior Queries at Resolver-Level: Understand and track GraphQL queries, mutations, response times, and function invocations for individual resolvers. 
 - Visualize: Compare and reveal potential performance bottlenecks utilizing QLeo's illustration to enhance the efficiency of GraphQL API calls.
+- History: Keep record of GraphQL request's performance metrics and graphs in the current session.
+
 
 <img src="src/assets/performance.png">
 
@@ -58,6 +60,10 @@ The instructions for MacOS users (Intel & M1) are as follows:
 
 6. Navigate to the Performance tab - View your resolver's performance with graphical representation. 
 <br/>
+
+7. All previous requests will be saved in the History tab - Refer back to any of the request's performance metrics by simply selecting the corresponding query that was made.
+
+<img src="src/assets/history.png">
 
 ## Technologies Involved
 
