@@ -49,7 +49,9 @@ function ResolversPerformance({ query, metrics, execRequest, setMetrics, setExec
       <div className="mt-6 pb-4 border-b border-bg-mirror">
         <p className="text-xs uppercase tracking-widest">Resolver Breakdown</p>
       </div>
-      <Dropdown obj={metrics} indent={0}/>
+      <div className="overflow-scroll h-3/5">
+        <Dropdown obj={metrics} indent={0}/>
+      </div>
     </div>
   );
 }

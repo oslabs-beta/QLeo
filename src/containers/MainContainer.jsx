@@ -8,7 +8,8 @@ function MainContainer({schema, query, metrics, setQuery, setMetrics}) {
 
   return (
     <div className="w-full flex mt-4">
-      <Schema schema={schema} />
+      {schema ? <Schema/> 
+        : <p className="w-1/5 mx-10 my-6">Please upload a schema 🧐</p>}
       <QueryInput 
         setQuery={setQuery}
         query={query}
