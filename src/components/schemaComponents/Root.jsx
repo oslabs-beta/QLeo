@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function Root({setIsRoot, setReqData, setPrev, data}) {
 
-  function clickHanlder(e) {
+  function clickHandler(e) {
     e.preventDefault();
     if (e.target.innerText === 'Query'){
       // setPrev({prev:prev, typeDef:data.queryType});
@@ -16,10 +16,10 @@ function Root({setIsRoot, setReqData, setPrev, data}) {
   return (
     <div className="schema-content">
       <div>
-        <button onClick={clickHanlder}>Query</button>
+        <button onClick={clickHandler}>Query</button>
       </div>
       <div>
-        <button onClick={clickHanlder}>Mutation</button>
+        <button onClick={clickHandler}>Mutation</button>
       </div>
     </div>
   );
