@@ -3,7 +3,7 @@ import QueryInput from '../components/QueryInput';
 import ResolversPerformance from '../components/ResolversPerformance';
 import Schema from '../components/Schema';
 
-function MainContainer({schema, query, metrics, setQuery, setMetrics}) {
+function MainContainer({schema, query, metrics, setQuery, setMetrics, history, setHistory}) {
   const [execRequest, setExecRequest] = useState(false);
 
   return (
@@ -14,13 +14,17 @@ function MainContainer({schema, query, metrics, setQuery, setMetrics}) {
         setQuery={setQuery}
         query={query}
         setExecRequest={setExecRequest}
-        setMetrics={setMetrics}/>
+        setMetrics={setMetrics}
+      />
       <ResolversPerformance 
         query={query} 
         metrics={metrics}
         setMetrics={setMetrics}
         setExecRequest={setExecRequest}
-        execRequest={execRequest}/> 
+        execRequest={execRequest}
+        history={history}
+        setHistory={setHistory}
+      /> 
     </div>
   );
 }

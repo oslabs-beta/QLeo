@@ -14,6 +14,10 @@ const navItems = [
   {
     title: 'Performance',
     path: '/performance'
+  },
+  {
+    title: 'History',
+    path: '/history'
   }
 ];
 
