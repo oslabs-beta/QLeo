@@ -24,7 +24,7 @@ QLeo is in active development. Please follow to the end of the repository for co
 - History: Keep record of GraphQL request's performance metrics and graphs in the current session.
 
 
-<img src="src/assets/performance.png">
+<img src="src/assets/performance-new.png">
 
 <br/>
 
@@ -48,24 +48,23 @@ The instructions for MacOS users (Intel & M1) are as follows:
 2. Navigate to the Dashboard tab - where a schema model, a code editor, and a Metrics directory will be displayed. 
 3. The schema model and types will be available to view on the left panel for easy reference.
 
-<img src="src/assets/schema.png">
+<img src="src/assets/schema-new.png">
 
 4. Write up a GraphQL query and/or mutation in QLeo’s code editor, then press 'Submit'. 
 5. QLeo will start to gather and display the data on the Metrics directory on the right panel. 
   - It will display the total query response time. 
   - It will also display a breakdown of resolvers: 
     - Toggle the 'Show Details' to view corresponding performance and metrics. 
-
-<img src="src/assets/metrics2.png">
-
+<center>
+  <img src="src/assets/metrics2.png">
+</center>
 6. Navigate to the Performance tab - View your resolver's performance with graphical representation. 
 <br/>
 
 7. All previous requests will be saved in the History tab - Refer back to any of the request's performance metrics by simply selecting the corresponding query that was made.
 
-<center>
-  <img src="src/assets/history.png">
-</center>
+<img src="src/assets/history.png">
+
 
 ## Technologies Involved
 
