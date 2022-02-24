@@ -69,13 +69,11 @@ The instructions for MacOS users (Intel & M1) are as follows:
 - Webpack
 - Tailwind CSS
 - CodeMirror Code Editor
-
-
 <br/>
 
 ## Contributing 
 
-Interested in making a contribution to QLeo? Click [here]() for our open-source contribution guidelines.
+Interested in making a contribution to QLeo? Click [here](https://github.com/oslabs-beta/QLeo/blob/main/Contribution.md) for our open-source contribution guidelines.
 
 <br/>
 
