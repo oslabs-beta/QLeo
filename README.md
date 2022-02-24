@@ -55,17 +55,18 @@ The instructions for MacOS users (Intel & M1) are as follows:
   - It will display the total query response time. 
   - It will also display a breakdown of resolvers: 
     - Toggle the 'Show Details' to view corresponding performance and metrics. 
-
-<img src="src/assets/metrics2.png">
+<center>
+  <img src="src/assets/metrics2.png">
+</center>
 
 6. Navigate to the Performance tab - View your resolver's performance with graphical representation. 
 <br/>
 
 7. All previous requests will be saved in the History tab - Refer back to any of the request's performance metrics by simply selecting the corresponding query that was made.
 
-<center>
-  <img src="src/assets/history.png">
-</center>
+
+<img src="src/assets/history.png">
+
 
 ## Technologies Involved
 
