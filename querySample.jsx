@@ -1,6 +1,6 @@
 const first = `
   query {
-    species(id: "5d963c76273db10a425ce9ac") {
+    species(id: 2) {
       name
       people {
         id
