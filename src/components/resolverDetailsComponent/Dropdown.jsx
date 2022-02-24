@@ -9,7 +9,7 @@ const Dropdown = ({ obj, indent }) => {
   const newIndent = indent + 0.75;
   
   return (
-    <div>
+    <div className='overflow-auto'>
       {Object.keys(obj).map(key => {
         if (typeof obj[key] === 'object'){
           if (obj[key].time !== undefined){
@@ -20,8 +20,8 @@ const Dropdown = ({ obj, indent }) => {
             );
           }
           return (
-            <div key={key} className="pl-1.5">
-              <div>
+            <div key={key} className="pl-1.5 overflow-scroll">
+              <div className='overflow-scroll'>
                 <button className="w-full py-1.5 flex justify-between items-center" onClick={() => setToggle(!toggle)}>
                   <p style={{ textIndent: `${indent}em` }}>{key}</p>
                   <FontAwesomeIcon icon={toggle ? faChevronUp : faChevronDown } />

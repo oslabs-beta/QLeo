@@ -59,7 +59,7 @@ const introQuery = gql`
 }
 `;
 
-function Schema({schema}) {
+function Schema() {
   const [isRoot, setIsRoot] = useState(true);
   const [prev, setPrev] = useState(null);
   const [reqData, setReqData] = useState({});
@@ -71,11 +71,6 @@ function Schema({schema}) {
 
   if (error) {
     console.log('There was an error', error);
-  }
-
-
-  if (!schema) {
-    return <p className="w-1/5 mx-10 my-6">Schema is missing...</p>;
   }
 
   const schemaTypes = [];
@@ -107,7 +102,7 @@ function Schema({schema}) {
       <h1 className="font-bold text-lg pb-2">Schema</h1>
       <button className="pb-2 text-sm tracking-wider text-link" onClick={backHandler}>{button}</button>
       {isRoot && <Root setIsRoot={setIsRoot} data={data['__schema']} setReqData={setReqData} />}
-      {!isRoot && schemaTypes.length > 0}
+      {!isRoot && schemaTypes}
     </div>
   );
 }
